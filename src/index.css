@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bc-bg: #0a0a0a;
+    --bc-surface: #151515;
+    --bc-surface-soft: #202020;
+    --bc-text: #f5f3ef;
+    --bc-muted: #b7b3a9;
+    --bc-accent: #d4af37;
+    --bc-accent-soft: rgba(212, 175, 55, 0.25);
+  }
+
+  * {
+    @apply box-border;
+  }
+
+  html,
+  body,
+  #root {
+    @apply min-h-screen;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+  }
+
+  body {
+    @apply m-0 bg-obsidian text-pearl font-body antialiased;
+    background-image:
+      radial-gradient(circle at 10% 10%, rgba(212, 175, 55, 0.12), transparent 33%),
+      radial-gradient(circle at 90% 20%, rgba(255, 255, 255, 0.08), transparent 28%),
+      linear-gradient(145deg, #060606 0%, #0d0d0d 50%, #101010 100%);
+  }
+
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer utilities {
+  @keyframes bc-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .reveal-up {
+    animation: bc-fade-up 0.8s ease both;
+    animation-delay: var(--delay, 0ms);
+  }
+}
