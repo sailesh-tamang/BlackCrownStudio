@@ -16,25 +16,24 @@ const navItems = [
 
 const processSteps = [
   {
-    number: '01',
-    title: 'Schedule Now',
-    description: 'Book online or by phone and lock in your production window.',
+    number: '1',
+    title: 'Book Your Shoot',
+    description: 'Schedule your shoot online or by phone.',
   },
   {
-    number: '02',
+    number: '2',
     title: 'Select Package',
-    description: 'Choose services and add-ons that fit the listing and timeline.',
+    description: 'Choose the services and add-ons you need.',
   },
   {
-    number: '03',
+    number: '3',
     title: 'Shoot Day',
-    description: 'Our team arrives on location with a clear plan and creative direction.',
+    description: 'Our team arrives to capture your listing perfectly.',
   },
   {
-    number: '04',
+    number: '4',
     title: 'Media Delivery',
-    description: 'Edited media is delivered in 1-2 business days via Dropbox.',
-    detail: 'Listing Video, Drone Reel, BTS Photos, and Thumbnails included.',
+    description: 'Receive your edited media in 1-2 business days.',
   },
 ]
 
@@ -826,6 +825,44 @@ function HeroSection() {
 }
 
 function ProcessSection() {
+  const previews = [
+    <div className="grid gap-2" key="booking-preview">
+      <p className="mb-1 text-[0.62rem] text-white/55">Book a New Order</p>
+      {['Property address', 'Shoot date', 'Package'].map((label) => (
+        <div key={label} className="rounded bg-white/[0.07] px-3 py-1.5 text-[0.6rem] text-white/35">{label}</div>
+      ))}
+    </div>,
+    <div className="grid gap-1.5" key="package-preview">
+      {['Starter — $750', 'Signature — $1,100', 'Full Stable — $1,425'].map((label, index) => (
+        <div
+          key={label}
+          className={`flex items-center justify-between rounded px-2.5 py-1.5 text-[0.6rem] ${
+            index === 1 ? 'bg-accent font-bold text-black' : 'bg-white/[0.07] text-white/45'
+          }`}
+        >
+          <span>{label}</span>
+          {index === 1 && <span aria-hidden="true">✓</span>}
+        </div>
+      ))}
+    </div>,
+    <div className="flex h-full flex-col items-center justify-center gap-2 text-accent" key="shoot-preview">
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.8" className="h-9 w-9" aria-hidden="true">
+        <path d="M15 16h5l3-4h7l3 4h4a4 4 0 0 1 4 4v15H11V20a4 4 0 0 1 4-4Z" />
+        <circle cx="26" cy="26" r="6" />
+      </svg>
+      <p className="text-[0.65rem] text-white/45">Team on location</p>
+    </div>,
+    <div className="grid gap-1.5" key="delivery-preview">
+      <p className="text-[0.62rem] text-white/55">Your videos</p>
+      <div className="grid grid-cols-2 gap-1">
+        {['Listing Video', 'Drone Reel', 'BTS Photos', 'Thumbnails'].map((label) => (
+          <div key={label} className="rounded bg-white/[0.045] px-1.5 py-2 text-[0.52rem] text-white/25">{label}</div>
+        ))}
+      </div>
+      <div className="rounded bg-[#0878ff] py-1.5 text-center text-[0.58rem] font-bold text-white">Download from Dropbox</div>
+    </div>,
+  ]
+
   return (
     <Reveal id="process" variant="dark">
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start">
@@ -843,18 +880,22 @@ function ProcessSection() {
         </div>
       </div>
 
-      <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-        {processSteps.map((step) => (
+      <div className="mt-10 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+        {processSteps.map((step, index) => (
           <motion.article
             key={step.number}
-            className="rounded-[1.8rem] border border-white/10 bg-white/5 p-6 shadow-[0_18px_44px_rgba(0,0,0,0.25)] transition-shadow duration-300"
+            className="rounded-[0.9rem] border border-white/[0.07] bg-[#181818] p-4 shadow-[0_18px_44px_rgba(0,0,0,0.25)] transition-shadow duration-300"
             whileHover={{ y: -6, scale: 1.01 }}
             whileTap={{ scale: 0.99 }}
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-accent">{step.number}</p>
-            <h3 className="mt-4 font-display text-2xl uppercase text-pearl">{step.title}</h3>
-            <p className="mt-3 text-sm leading-7 text-pearl/75">{step.description}</p>
-            {step.detail && <p className="mt-4 text-sm leading-7 text-pearl/60">{step.detail}</p>}
+            <div className="h-[8.9rem] rounded-[0.8rem] border border-white/[0.08] bg-[linear-gradient(145deg,#2b2b2b,#202020)] p-3">
+              {previews[index]}
+            </div>
+            <p className="mt-3 inline-flex rounded-full bg-accent px-3 py-1 text-[0.65rem] font-bold text-black">
+              Step {step.number}
+            </p>
+            <h3 className="mt-3 font-display text-base uppercase text-pearl">{step.title}</h3>
+            <p className="mt-2 text-sm leading-5 text-pearl/55">{step.description}</p>
           </motion.article>
         ))}
       </div>
