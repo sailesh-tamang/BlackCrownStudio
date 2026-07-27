@@ -1,6 +1,7 @@
 import { AnimatePresence, motion, useInView, useScroll, useTransform } from 'framer-motion'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import logoMark from '../assets/logo.png'
+import restaurantHero from '../assets/restaurant-hero.png'
 
 const phoneNumber = '+977-9813056871'
 const emailAddress = 'contact@blackcrownstudio.com'
@@ -155,24 +156,24 @@ const values = [
   {
     title: 'Creativity & Innovation',
     description:
-      'Pushing creative boundaries with innovative techniques for visually stunning content.',
+      'BlackCrown Studio is driven by a passion for pushing creative boundaries and using innovative techniques to craft visually stunning, impactful content.',
   },
   {
     title: 'Authenticity & Collaboration',
     description:
-      'Authentic storytelling and close collaboration so every project matches the client vision.',
+      'We prioritize authentic storytelling and value close collaboration with clients, ensuring every project aligns with their unique vision and message.',
   },
   {
     title: 'Excellence & Impact',
     description:
-      'High-quality results that resonate and leave a lasting impression with buyers and clients.',
+      'With a commitment to delivering high-quality results, we create meaningful content that resonates deeply and leaves a lasting impression.',
   },
 ]
 
 const team = [
-  { name: 'Sailesh Kumar Tamang', title: 'Co-Founder' },
-  { name: 'Chase Divel', title: 'Co-Founder' },
-  { name: 'Alex Salas', title: 'Partner & Creative Director' },
+  { name: 'Pawan Khatiwada', title: 'Founder' },
+  { name: 'Sailesh Tamang', title: 'Co-Founder' },
+  { name: 'Fourehouse Media', title: 'Partner & Creative Director' },
 ]
 
 const listingLevels = [
@@ -744,8 +745,8 @@ function HeroSection() {
         transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
       >
         <motion.div
-          className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1800&q=80')] bg-cover bg-center"
-          style={{ y: parallaxY, opacity: fade }}
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ y: parallaxY, opacity: fade, backgroundImage: `url(${restaurantHero})` }}
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.18)_0%,rgba(0,0,0,0.3)_36%,rgba(0,0,0,0.82)_100%)]" aria-hidden="true" />
@@ -1083,11 +1084,11 @@ function AboutSection() {
           </h2>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {values.map((value, index) => (
             <motion.article
               key={value.title}
-              className="rounded-[1.65rem] border border-white/8 bg-[#171717] p-5 shadow-[0_18px_44px_rgba(0,0,0,0.28)]"
+              className="rounded-[0.9rem] border border-white/[0.06] bg-[#191919] px-7 py-7 shadow-[0_18px_44px_rgba(0,0,0,0.28)]"
               whileHover={{ y: -6, scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
               initial={{ opacity: 0, y: 16 }}
@@ -1095,21 +1096,28 @@ function AboutSection() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.45, delay: index * 0.08 }}
             >
-              <div className="flex h-[4.15rem] w-[4.15rem] items-center justify-center rounded-2xl bg-accent/15 text-accent">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" className="h-9 w-9">
-                  <path d="M12 2v4" />
-                  <path d="M12 18v4" />
-                  <path d="M4.93 4.93 7.76 7.76" />
-                  <path d="M16.24 16.24 19.07 19.07" />
-                  <path d="M2 12h4" />
-                  <path d="M18 12h4" />
-                  <path d="M4.93 19.07 7.76 16.24" />
-                  <path d="M16.24 7.76 19.07 4.93" />
-                  <circle cx="12" cy="12" r="3.2" />
-                </svg>
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#2c2400] text-accent">
+                {index === 0 && (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-6 w-6" aria-hidden="true">
+                    <path d="M9 18h6M10 22h4M8.2 14.5A6 6 0 1 1 15.8 14.5c-.9.7-1.3 1.4-1.3 2.5h-5c0-1.1-.4-1.8-1.3-2.5Z" />
+                  </svg>
+                )}
+                {index === 1 && (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className="h-6 w-6" aria-hidden="true">
+                    <path d="m8.5 13.5 3 3a2 2 0 0 0 3-2.6l1 .8a2 2 0 0 0 2.8-2.8l-5.1-4.6a3 3 0 0 0-3.8-.2L7 9" />
+                    <path d="m2.5 7 3-2 3 5-3.5 2.2L2.5 7Zm19 0-3-2-2.2 3.6 3.2 2.4 2-4Z" />
+                    <path d="m7.5 11 2-2 3.5 3.2" />
+                  </svg>
+                )}
+                {index === 2 && (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-6 w-6" aria-hidden="true">
+                    <circle cx="12" cy="9" r="5" />
+                    <path d="m9 13-1 8 4-2 4 2-1-8M10 9l1.3 1.3L14 7.7" />
+                  </svg>
+                )}
               </div>
-              <h3 className="mt-6 font-display text-[1.55rem] uppercase leading-[0.95] text-pearl">{value.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-pearl/72">{value.description}</p>
+              <h3 className="mt-6 text-sm font-black uppercase leading-5 tracking-[0.02em] text-accent">{value.title}</h3>
+              <p className="mt-3 text-[0.82rem] leading-5 text-pearl/55">{value.description}</p>
             </motion.article>
           ))}
         </div>
