@@ -8,6 +8,7 @@ import saileshTamang from '../assets/sailesh-tamang.png'
 const phoneNumber = '+977-9813056871'
 const emailAddress = 'contact@blackcrownstudio.com'
 const bookingPath = '/book'
+const dashboardPath = '/dashboard'
 
 const navItems = [
   { label: 'Services', target: 'services' },
@@ -438,6 +439,25 @@ function navigateToPath(pathname) {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
+async function readApiResponse(response) {
+  const body = await response.text()
+  let result = {}
+
+  if (body) {
+    try {
+      result = JSON.parse(body)
+    } catch {
+      throw new Error('The booking service returned an invalid response. Please try again.')
+    }
+  }
+
+  if (!response.ok) {
+    throw new Error(result.error || `The booking service returned error ${response.status}.`)
+  }
+
+  return result
+}
+
 function useScrollSpy(sectionIds) {
   const [activeId, setActiveId] = useState(sectionIds[0])
 
@@ -519,7 +539,7 @@ function SectionHeading({ eyebrow, title, subtitle, light = false, centered = fa
   )
 }
 
-function ActionButton({ children, onClick, href, type = 'button', variant = 'primary', className = '' }) {
+function ActionButton({ children, onClick, href, type = 'button', variant = 'primary', className = '', disabled = false }) {
   const baseClass =
     variant === 'primary'
       ? 'border border-accent bg-accent text-black shadow-[0_10px_30px_rgba(212,175,55,0.18)]'
@@ -542,7 +562,7 @@ function ActionButton({ children, onClick, href, type = 'button', variant = 'pri
   }
 
   return (
-    <motion.button {...motionProps} type={type} onClick={onClick} className={`${shared} ${baseClass} ${className}`}>
+    <motion.button {...motionProps} type={type} onClick={onClick} disabled={disabled} className={`${shared} ${baseClass} ${disabled ? 'cursor-not-allowed opacity-60' : ''} ${className}`}>
       {children}
     </motion.button>
   )
@@ -1588,11 +1608,35 @@ function FaqSection() {
 }
 
 function BookingSection() {
+  const [submitState, setSubmitState] = useState({ status: 'idle', message: '' })
   const quickLinks = [
     { label: 'Book With Us', target: 'packages' },
     { label: 'Content Creator Program', target: 'social-media' },
     { label: 'Out of State Campaigns', target: 'out-of-state' },
   ]
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    setSubmitState({ status: 'submitting', message: '' })
+    const form = event.currentTarget
+    const payload = Object.fromEntries(new FormData(form).entries())
+
+    try {
+      const response = await fetch('/api/bookings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      await readApiResponse(response)
+      form.reset()
+      setSubmitState({ status: 'success', message: 'Your shoot has been booked. We will contact you shortly to confirm.' })
+    } catch (error) {
+      const message = error instanceof TypeError
+        ? 'The booking service is unavailable. Please try again shortly.'
+        : error.message
+      setSubmitState({ status: 'error', message })
+    }
+  }
 
   return (
     <Reveal id="book" variant="dark">
@@ -1622,15 +1666,30 @@ function BookingSection() {
 
         <motion.form
           className="rounded-[2rem] border border-white/10 bg-[#121212] p-6 shadow-[0_18px_44px_rgba(0,0,0,0.3)]"
-          onSubmit={(event) => event.preventDefault()}
+          onSubmit={handleSubmit}
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
         >
           <div className="grid gap-4">
+            <div className="grid gap-4 sm:grid-cols-2">
+              <label className="grid gap-2 text-sm text-pearl/80">
+                Full name
+                <input required type="text" name="name" autoComplete="name" placeholder="Your full name" className="rounded-2xl border border-white/10 bg-black/35 px-4 py-3 text-pearl outline-none transition-colors placeholder:text-pearl/35 focus:border-accent" />
+              </label>
+              <label className="grid gap-2 text-sm text-pearl/80">
+                Phone number
+                <input required type="tel" name="phone" autoComplete="tel" placeholder="Phone number" className="rounded-2xl border border-white/10 bg-black/35 px-4 py-3 text-pearl outline-none transition-colors placeholder:text-pearl/35 focus:border-accent" />
+              </label>
+            </div>
+            <label className="grid gap-2 text-sm text-pearl/80">
+              Email address
+              <input required type="email" name="email" autoComplete="email" placeholder="you@example.com" className="rounded-2xl border border-white/10 bg-black/35 px-4 py-3 text-pearl outline-none transition-colors placeholder:text-pearl/35 focus:border-accent" />
+            </label>
             <label className="grid gap-2 text-sm text-pearl/80">
               Property address
               <input
+                required
                 type="text"
                 name="propertyAddress"
                 placeholder="Property address"
@@ -1640,8 +1699,10 @@ function BookingSection() {
             <label className="grid gap-2 text-sm text-pearl/80">
               Shoot date
               <input
+                required
                 type="date"
                 name="shootDate"
+                min={new Date().toISOString().split('T')[0]}
                 className="rounded-2xl border border-white/10 bg-black/35 px-4 py-3 text-pearl outline-none transition-colors focus:border-accent"
               />
             </label>
@@ -1660,13 +1721,125 @@ function BookingSection() {
                 <option>Out-of-State Package 03</option>
               </select>
             </label>
-            <ActionButton type="submit" className="mt-2 w-full">
-              Book Your Shoot
+            <ActionButton type="submit" disabled={submitState.status === 'submitting'} className="mt-2 w-full">
+              {submitState.status === 'submitting' ? 'Booking...' : 'Book Your Shoot'}
             </ActionButton>
+            {submitState.message && (
+              <p role="status" className={`rounded-2xl border px-4 py-3 text-sm ${submitState.status === 'success' ? 'border-emerald-400/30 bg-emerald-400/10 text-emerald-200' : 'border-red-400/30 bg-red-400/10 text-red-200'}`}>
+                {submitState.message}
+              </p>
+            )}
           </div>
         </motion.form>
       </div>
     </Reveal>
+  )
+}
+
+function DashboardPage() {
+  const [bookings, setBookings] = useState([])
+  const [adminKey, setAdminKey] = useState(() => sessionStorage.getItem('blackcrown-admin-key') || '')
+  const [state, setState] = useState({ loading: true, error: '' })
+
+  const loadBookings = async (key = adminKey) => {
+    setState({ loading: true, error: '' })
+    try {
+      const response = await fetch('/api/bookings', {
+        headers: key ? { Authorization: `Bearer ${key}` } : {},
+      })
+      const result = await readApiResponse(response)
+      setBookings(result.bookings)
+      setState({ loading: false, error: '' })
+      if (key) sessionStorage.setItem('blackcrown-admin-key', key)
+    } catch (error) {
+      setState({ loading: false, error: error.message })
+    }
+  }
+
+  useEffect(() => {
+    loadBookings()
+    // Dashboard loads once on entry; manual refresh is available in the toolbar.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const updateStatus = async (id, status) => {
+    try {
+      const response = await fetch(`/api/bookings/${id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(adminKey ? { Authorization: `Bearer ${adminKey}` } : {}),
+        },
+        body: JSON.stringify({ status }),
+      })
+      const result = await readApiResponse(response)
+      setBookings((current) => current.map((booking) => (booking.id === id ? result.booking : booking)))
+    } catch (error) {
+      setState((current) => ({ ...current, error: error.message }))
+    }
+  }
+
+  return (
+    <main className="min-h-screen bg-[#0a0a0a] px-6 py-8 text-pearl md:px-10 lg:px-12">
+      <div className="mx-auto w-full max-w-7xl">
+        <div className="flex flex-col gap-5 border-b border-white/10 pb-7 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-accent">Admin Dashboard</p>
+            <h1 className="mt-3 font-display text-4xl uppercase sm:text-5xl">Shoot Bookings</h1>
+            <p className="mt-3 text-sm text-pearl/55">{bookings.length} total booking{bookings.length === 1 ? '' : 's'}</p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <ActionButton variant="secondary" onClick={() => navigateToPath('/')}>Website</ActionButton>
+            <ActionButton onClick={() => loadBookings()}>Refresh</ActionButton>
+          </div>
+        </div>
+
+        {state.error === 'Invalid admin key' && (
+          <form className="mt-8 max-w-md rounded-[1.5rem] border border-white/10 bg-[#151515] p-5" onSubmit={(event) => { event.preventDefault(); loadBookings(adminKey) }}>
+            <label className="grid gap-2 text-sm text-pearl/75">
+              Admin key
+              <input type="password" value={adminKey} onChange={(event) => setAdminKey(event.target.value)} className="rounded-2xl border border-white/10 bg-black/35 px-4 py-3 text-pearl outline-none focus:border-accent" required />
+            </label>
+            <ActionButton type="submit" className="mt-4 w-full">Open Dashboard</ActionButton>
+          </form>
+        )}
+
+        {state.error && state.error !== 'Invalid admin key' && <p className="mt-8 rounded-2xl border border-red-400/30 bg-red-400/10 px-4 py-3 text-sm text-red-200">{state.error}</p>}
+        {state.loading && <p className="mt-10 text-pearl/60">Loading bookings...</p>}
+        {!state.loading && !state.error && bookings.length === 0 && (
+          <div className="mt-8 rounded-[1.5rem] border border-dashed border-white/15 p-10 text-center text-pearl/55">No bookings yet.</div>
+        )}
+
+        {!state.loading && !state.error && bookings.length > 0 && (
+          <div className="mt-8 overflow-x-auto rounded-[1.5rem] border border-white/10 bg-[#151515]">
+            <table className="w-full min-w-[980px] text-left text-sm">
+              <thead className="border-b border-white/10 bg-white/[0.03] text-xs uppercase tracking-[0.14em] text-accent">
+                <tr>
+                  {['Customer', 'Contact', 'Property', 'Shoot date', 'Package', 'Status', 'Received'].map((heading) => <th key={heading} className="px-5 py-4 font-semibold">{heading}</th>)}
+                </tr>
+              </thead>
+              <tbody>
+                {bookings.map((booking) => (
+                  <tr key={booking.id} className="border-b border-white/[0.07] last:border-0">
+                    <td className="px-5 py-4 font-semibold text-white">{booking.name}</td>
+                    <td className="px-5 py-4 text-pearl/65"><a className="block hover:text-accent" href={`mailto:${booking.email}`}>{booking.email}</a><a className="mt-1 block hover:text-accent" href={`tel:${booking.phone}`}>{booking.phone}</a></td>
+                    <td className="max-w-[240px] px-5 py-4 text-pearl/65">{booking.propertyAddress}</td>
+                    <td className="whitespace-nowrap px-5 py-4 text-pearl/65">{new Date(`${booking.shootDate}T00:00:00`).toLocaleDateString()}</td>
+                    <td className="px-5 py-4 text-pearl/65">{booking.package}</td>
+                    <td className="px-5 py-4">
+                      <select value={booking.status} onChange={(event) => updateStatus(booking.id, event.target.value)} className="rounded-xl border border-white/10 bg-black/40 px-3 py-2 text-pearl outline-none focus:border-accent">
+                        {['New', 'Confirmed', 'Completed', 'Cancelled'].map((status) => <option key={status}>{status}</option>)}
+                      </select>
+                    </td>
+                    <td className="whitespace-nowrap px-5 py-4 text-pearl/50">{new Date(booking.createdAt).toLocaleString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+    </main>
   )
 }
 
@@ -1722,9 +1895,11 @@ function BookingPage() {
 function BlackCrownStudioPage() {
   const pathname = usePagePath()
   const isBookingPage = pathname === bookingPath
+  const isDashboardPage = pathname === dashboardPath
   const sectionIds = isBookingPage ? ['book'] : ['home', 'services', 'portfolio', 'about', 'listing-media', 'social-media']
   const activeSection = useScrollSpy(sectionIds)
 
+  if (isDashboardPage) return <DashboardPage />
   return isBookingPage ? <BookingPage /> : <HomePage activeSection={activeSection} />
 }
 
