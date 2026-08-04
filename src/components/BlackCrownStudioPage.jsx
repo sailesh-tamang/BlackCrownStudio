@@ -1,7 +1,9 @@
 import { AnimatePresence, motion, useInView, useScroll, useTransform } from 'framer-motion'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import logoMark from '../assets/logo.png'
+import pawanKhatiwada from '../assets/pawan-khatiwada.png'
 import restaurantHero from '../assets/restaurant-hero.png'
+import saileshTamang from '../assets/sailesh-tamang.png'
 
 const phoneNumber = '+977-9813056871'
 const emailAddress = 'contact@blackcrownstudio.com'
@@ -171,8 +173,8 @@ const values = [
 ]
 
 const team = [
-  { name: 'Pawan Khatiwada', title: 'Founder' },
-  { name: 'Sailesh Tamang', title: 'Co-Founder' },
+  { name: 'Pawan Khatiwada', title: 'Founder', image: pawanKhatiwada },
+  { name: 'Sailesh Tamang', title: 'Co-Founder', image: saileshTamang },
   { name: 'Fourehouse Media', title: 'Partner & Creative Director' },
 ]
 
@@ -1153,13 +1155,24 @@ function AboutSection() {
                   transition={{ duration: 0.45, delay: index * 0.08 }}
                 >
                   <div className="relative aspect-[4/4.35] bg-[linear-gradient(135deg,#fff,#f7efcf)]">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_52%,rgba(212,175,55,0.18),transparent_35%)]" />
-                    <div className="absolute left-5 top-5 text-slate-950">
+                    {member.image ? (
+                      <>
+                        <img
+                          src={member.image}
+                          alt={`${member.name}, ${member.title}`}
+                          className="absolute inset-0 h-full w-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-transparent to-black/10" />
+                      </>
+                    ) : (
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_52%,rgba(212,175,55,0.18),transparent_35%)]" />
+                    )}
+                    <div className={`absolute left-5 top-5 z-10 ${member.image ? 'text-white' : 'text-slate-950'}`}>
                       <h4 className="font-display text-[1.6rem] uppercase leading-none">{member.name}</h4>
-                      <p className="mt-2 text-sm text-slate-600">{member.title}</p>
+                      <p className={`mt-2 text-sm ${member.image ? 'text-white/80' : 'text-slate-600'}`}>{member.title}</p>
                     </div>
 
-                    <div className="absolute inset-x-0 bottom-0 flex justify-center px-6 pb-0">
+                    {!member.image && <div className="absolute inset-x-0 bottom-0 flex justify-center px-6 pb-0">
                       <div className="flex h-[72%] w-full items-end justify-center">
                         <div className="flex h-[88%] w-[82%] items-end justify-center rounded-[2rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.2),rgba(255,255,255,0.9))] shadow-[0_20px_50px_rgba(0,0,0,0.08)]">
                           <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-full bg-slate-950 text-lg font-black uppercase tracking-[0.12em] text-accent shadow-[0_16px_30px_rgba(0,0,0,0.18)]">
@@ -1170,7 +1183,7 @@ function AboutSection() {
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div>}
                   </div>
                 </motion.article>
               ))}
