@@ -1,6 +1,6 @@
 const processSteps = [
   {
-    title: 'Book Your Shoot',
+    title: 'BOOK A MEETING',
     description: 'Schedule online or by phone',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-6 w-6">

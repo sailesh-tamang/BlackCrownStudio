@@ -39,7 +39,7 @@ function ListingMedia() {
             href="#appointment"
             className="mt-6 inline-flex rounded-full border border-accent bg-accent px-6 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-black transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_26px_rgba(212,175,55,0.45)]"
           >
-            Book a Shoot
+            BOOK A MEETING
           </a>
         </div>
 

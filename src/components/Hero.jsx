@@ -14,8 +14,12 @@ function Hero() {
 
       <div className="relative flex min-h-[70vh] flex-col justify-center px-6 py-14 sm:px-10 lg:px-14">
         <div className="max-w-4xl">
+          <p className="text-base font-semibold text-pearl sm:text-lg">
+            Kathmandu based digital marketing studio
+          </p>
+
           <h1 className="font-display text-4xl font-bold uppercase leading-[1.06] text-pearl sm:text-5xl lg:text-6xl">
-            <span className="text-accent">Cinematic Content</span> That Wins Listings And Gets Clients.
+            <span className="text-accent">Creative Marketing</span> That Gets Your Brand Seen, Heard And Chosen.
           </h1>
 
           <ul className="mt-8 max-w-3xl space-y-3 text-base leading-relaxed text-[#e5e1d8] sm:text-lg">
@@ -45,7 +49,7 @@ function Hero() {
                 <path d="M4 20h4l10-10a2.8 2.8 0 1 0-4-4L4 16v4Z" />
                 <path d="m13.5 6.5 4 4" />
               </svg>
-              <span>Hooks + scripts included so you know exactly what to say.</span>
+              <span><strong>Strategy + Content Included:</strong> We plan what to post, when to post, and how to make it perform.</span>
             </li>
             <li className="flex items-start gap-3">
               <svg
@@ -59,7 +63,7 @@ function Hero() {
                 <circle cx="12" cy="8" r="3.3" />
                 <path d="M5 20a7 7 0 0 1 14 0" />
               </svg>
-              <span>Made for agents: branding videos, short-form reels, photos, and drone.</span>
+              <span><strong>Made for business:</strong> branding videos, short-form reels, photos, drone and more for the business that want to stand out.</span>
             </li>
           </ul>
 
@@ -74,7 +78,7 @@ function Hero() {
               href="#appointment"
               className="rounded-full border border-pearl/30 bg-white/5 px-6 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-pearl transition-colors duration-300 hover:border-accent hover:text-accent"
             >
-              Book a Shoot
+              BOOK A MEETING
             </a>
           </div>
         </div>

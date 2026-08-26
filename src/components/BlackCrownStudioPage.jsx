@@ -15,13 +15,12 @@ const navItems = [
   { label: 'Portfolio', target: 'portfolio' },
   { label: 'About', target: 'about' },
   { label: 'Listing Media', target: 'listing-media' },
-  { label: 'Social Media', target: 'social-media' },
 ]
 
 const processSteps = [
   {
     number: '1',
-    title: 'Book Your Shoot',
+    title: 'BOOK A MEETING',
     description: 'Schedule your shoot online or by phone.',
   },
   {
@@ -44,72 +43,74 @@ const processSteps = [
 const packages = [
   {
     name: 'Starter',
-    price: '$750',
-    accent: 'Best for entry listings',
-    services: ['Professional MLS Photography', 'Drone Photography', 'Signature Listing Video'],
+    price: 'NPR 50K',
+    accent: 'Best for getting started',
+    services: [
+      '12 reels (scripts, shoots and edit)',
+      'Social media management (2 platforms)',
+      '6 designs',
+      'Monthly content planning',
+      '1 review round',
+    ],
   },
   {
     name: 'Signature',
-    price: '$1,100',
-    accent: 'Most requested',
+    price: 'NPR 120K',
+    accent: 'Most popular',
     services: [
-      'Professional MLS Photography',
-      'Drone Photography',
-      'Signature Listing Video',
-      'Twilight Add’l Stills',
+      '20 reels (scripts, shoots and edit)',
+      '12 designs',
+      'Social media management (all platforms)',
+      'Monthly content calendar + strategy',
+      'Performance review',
     ],
   },
   {
     name: 'Full Stable',
-    price: '$1,425',
-    accent: 'Complete premium stack',
+    price: 'NPR 200K',
+    accent: 'Complete growth system',
     services: [
-      'Professional MLS Photography',
-      'Drone Photography',
-      'Signature Listing Video',
-      'Twilight Add’l Stills',
-      'Platinum Reel',
-      'Custom Listing Website',
+      '30+ reels (scripts, shoots and edit)',
+      '20+ designs / carousels',
+      'Social media management',
+      'Campaign concepts',
+      'Priority turnaround + deeper optimization',
     ],
   },
 ]
 
-const outOfStatePackages = [
+const outOfValleyPackages = [
   {
-    title: 'Package 01',
-    price: '$6,500',
+    title: 'Starter',
+    price: 'NPR 60K',
     bullets: [
-      '2 full days on-site filming',
-      '10 fully produced videos',
-      'Drone footage included',
-      'Pre-shoot strategy, location, and script planning',
-      'Social media guidance and posting support',
-      'On-camera coaching and direction',
-      'Custom editing, captions, audio, and platform optimization',
+      '12 reels (scripts, shoots and edit)',
+      'Social media management (2 platforms)',
+      '6 designs',
+      'Monthly content planning',
+      '1 review round',
     ],
   },
   {
-    title: 'Package 02',
-    price: '$7,500',
+    title: 'Signature',
+    price: 'NPR 130K',
     bullets: [
-      '3 full days on-site filming',
-      '10 fully produced videos',
-      'Drone and A-roll coverage',
-      'Custom editing, captions, audio, and platform optimization',
-      'Personal brand authority development',
-      'Social media deep dive',
+      '20 reels (scripts, shoots and edit)',
+      '12 designs',
+      'Social media management (all platforms)',
+      'Monthly content calendar + strategy',
+      'Performance review',
     ],
   },
   {
-    title: 'Package 03',
-    price: '$8,500',
+    title: 'Full Stable',
+    price: 'NPR 200K',
     bullets: [
-      'Up to 3 full days on-site filming',
-      '12 fully produced videos',
-      'Drone package integrated in every video',
-      'Pre-shoot strategy sessions',
-      'Social media story sessions',
-      'Personal brand authority development',
+      '30+ reels (scripts, shoots and edit)',
+      '20+ designs / carousels',
+      'Social media management',
+      'Campaign concepts',
+      'Priority turnaround + deeper optimization',
     ],
   },
 ]
@@ -181,85 +182,10 @@ const team = [
 
 const listingLevels = [
   {
-    title: 'Level 1: Walk-Through Video',
+    title: 'Reel Marketing',
     description:
-      'Smooth speed ramps, high-end audio, and a polished walk-through designed for Instagram and TikTok.',
+      'Scroll-stopping reels with strategy, scripts, filming, and editing designed to make your brand memorable.',
   },
-  {
-    title: 'Level 2: Signature Video',
-    description:
-      'Scripted, directed, algorithm-optimized content with cinematic colors and effects.',
-  },
-]
-
-const socialPillars = [
-  'Consistent Strategic Posting',
-  'Elevated On-Brand Content',
-  'Clear Communication & Approvals',
-  'A System That Removes the Daily Pressure',
-]
-
-const socialPlans = [
-  {
-    name: 'Just Management',
-    price: '$1,700/mo',
-    features: [
-      'Up to 24 posts/mo (6x/wk)',
-      '8-10 reels (client-provided)',
-      'Instagram + Facebook',
-      'Monthly reporting',
-      '1 Zoom call/mo',
-    ],
-  },
-  {
-    name: 'Starter Engine',
-    price: '$2,200/mo',
-    features: [
-      'Up to 24 posts/mo',
-      '8-10 reels (filmed by us)',
-      '1 shoot day/mo (4hr max)',
-      'Instagram + Facebook',
-      'Monthly reporting',
-      '1 Zoom call/mo',
-    ],
-  },
-  {
-    name: 'Growth Engine',
-    price: '$4,000/mo',
-    features: [
-      '32 posts/mo (7x/wk)',
-      '12-15 reels',
-      '1 shoot day/mo',
-      'Instagram + Facebook + weekday DM management',
-      'Monthly reporting with insights',
-      '2 Zoom calls/mo',
-    ],
-  },
-]
-
-const socialTableRows = [
-  ['Investment', '$1,700/mo', '$2,200/mo', '$4,000/mo'],
-  ['Posts/month', 'Up to 24', 'Up to 24', '32'],
-  ['Reels/month', '8-10 (client-provided)', '8-10 (filmed by us)', '12-15'],
-  ['Shoot days', '0', '1 shoot day/mo (4hr max)', '1 shoot day/mo'],
-  ['Platforms', 'Instagram + Facebook', 'Instagram + Facebook', 'Instagram + Facebook + DM'],
-  ['DM Management', 'No', 'No', 'Weekday DM management'],
-  ['Reporting', 'Monthly reporting', 'Monthly reporting', 'Monthly reporting with insights'],
-  ['Zoom Calls', '1/mo', '1/mo', '2/mo'],
-  ['Content Creation', 'Client-provided reels', 'Filmed by BlackCrown Studio', 'Filmed by BlackCrown Studio'],
-]
-
-const onboardingSteps = [
-  'Account Access - IG login/admin and FB business page access',
-  'Brand Alignment - tone, voice, brand guidelines, target audience, and preferences',
-  'Workflow Setup - Google Drive folder, scheduling system, and posting cadence',
-]
-
-const communicationItems = [
-  'Monthly Zoom strategy call',
-  'Slack for quick communication',
-  '48-hour approval window',
-  'Clear timelines for every delivery',
 ]
 
 const stats = [
@@ -307,14 +233,14 @@ const faqSections = {
     {
       question: 'What markets do you serve?',
       answer:
-        'We serve local listings, out-of-state campaigns, and agents who need a consistent production partner wherever the project takes them.',
+        'We work with businesses inside and outside the valley that need a consistent digital marketing partner wherever they are.',
     },
   ],
   'Booking & Scheduling': [
     {
-      question: 'How do I book a shoot?',
+      question: 'How do I book a meeting?',
       answer:
-        'Use the booking form below, click Book a Shoot in the header, or call the studio to reserve your date.',
+        'Use the booking form below, click BOOK A MEETING in the header, or call the studio to reserve your date.',
     },
   ],
   'Pricing & Packages': [
@@ -687,7 +613,7 @@ function SiteHeader({ activeSection, isBookingPage = false }) {
             {phoneNumber}
           </motion.a>
           <ActionButton onClick={() => scrollToId(isBookingPage ? 'home' : 'book')}>
-            {isBookingPage ? 'Home' : 'Book a Shoot'}
+            {isBookingPage ? 'Home' : 'BOOK A MEETING'}
           </ActionButton>
         </div>
 
@@ -742,7 +668,7 @@ function SiteHeader({ activeSection, isBookingPage = false }) {
                   {phoneNumber}
                 </motion.a>
                 <ActionButton onClick={() => scrollToId(isBookingPage ? 'home' : 'book')} className="w-full">
-                  {isBookingPage ? 'Home' : 'Book a Shoot'}
+                  {isBookingPage ? 'Home' : 'BOOK A MEETING'}
                 </ActionButton>
               </div>
             </div>
@@ -788,7 +714,7 @@ function HeroSection() {
                   <circle cx="12" cy="10" r="2.2" />
                 </svg>
               </span>
-              North Carolina Based Real Estate Media Company
+              Kathmandu based digital marketing studio
             </motion.p>
 
             <motion.h1
@@ -797,7 +723,7 @@ function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.16 }}
             >
-              <span className="text-accent">Cinematic Content</span> That Wins Listings And Gets Clients.
+              <span className="text-accent">Creative Marketing</span> That Gets Your Brand Seen, Heard And Chosen.
             </motion.h1>
 
             <motion.ul
@@ -813,7 +739,7 @@ function HeroSection() {
                   </svg>
                 </span>
                 <span>
-                  <strong className="font-semibold text-pearl">Hooks + scripts included:</strong> we tell you exactly what to say.
+                  <strong className="font-semibold text-pearl">Strategy + Content Included:</strong> We plan what to post, when to post, and how to make it perform.
                 </span>
               </li>
               <li className="flex items-start gap-3">
@@ -824,7 +750,7 @@ function HeroSection() {
                   </svg>
                 </span>
                 <span>
-                  <strong className="font-semibold text-pearl">Made for agents:</strong> branding videos, short-form reels, photos, drone and more for the agents that want to stand out.
+                  <strong className="font-semibold text-pearl">Made for business:</strong> branding videos, short-form reels, photos, drone and more for the business that want to stand out.
                 </span>
               </li>
             </motion.ul>
@@ -856,7 +782,7 @@ function ProcessSection() {
       ))}
     </div>,
     <div className="grid gap-1.5" key="package-preview">
-      {['Starter — $750', 'Signature — $1,100', 'Full Stable — $1,425'].map((label, index) => (
+      {['Starter — NPR 50K', 'Signature — NPR 120K', 'Full Stable — NPR 200K'].map((label, index) => (
         <div
           key={label}
           className={`flex items-center justify-between rounded px-2.5 py-1.5 text-[0.6rem] ${
@@ -938,7 +864,7 @@ function PackagesSection() {
 
         <div className="lg:justify-self-end">
           <ActionButton onClick={() => scrollToId('book')} className="min-w-[190px] justify-between gap-3 px-5 py-3 text-sm">
-            <span>Book a Shoot</span>
+            <span>BOOK A MEETING</span>
             <span aria-hidden="true" className="text-lg leading-none">›</span>
           </ActionButton>
         </div>
@@ -960,7 +886,6 @@ function PackagesSection() {
             <div className="mt-4 flex items-end justify-between gap-4">
               <div>
                 <h3 className="font-display text-3xl uppercase text-pearl">{item.name}</h3>
-                <p className="mt-2 text-sm text-pearl/62">{item.services.length} included services</p>
               </div>
               <p className="font-display text-4xl leading-none text-accent">{item.price}</p>
             </div>
@@ -986,16 +911,16 @@ function PackagesSection() {
 
 function OutOfStateSection() {
   return (
-    <Reveal id="out-of-state" variant="light" className="border-y border-slate-200">
+    <Reveal id="out-of-valley" variant="light" className="border-y border-slate-200">
       <SectionHeading
-        eyebrow="Out-of-State Packages"
-        title="Not Based Locally? Not a Problem."
-        subtitle="Built for agents and teams that need a production partner on the road with strategy, direction, and content volume baked in."
+        eyebrow="Out Of Valley"
+        title="Outside The Valley? We've Got You."
+        subtitle="Built for businesses outside the valley that want consistent strategy, content, and digital marketing support from a reliable Kathmandu-based studio."
         light
       />
 
       <div className="mt-10 grid gap-5 lg:grid-cols-3">
-        {outOfStatePackages.map((item, index) => (
+        {outOfValleyPackages.map((item, index) => (
           <motion.article
             key={item.title}
             className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_18px_40px_rgba(15,23,42,0.08)]"
@@ -1018,7 +943,7 @@ function OutOfStateSection() {
               ))}
             </ul>
             <ActionButton onClick={() => scrollToId('book')} variant="secondary" className="mt-6 w-full border-slate-300 text-slate-950">
-              Book a Shoot
+              BOOK A MEETING
             </ActionButton>
           </motion.article>
         ))}
@@ -1144,12 +1069,6 @@ function AboutSection() {
           ))}
         </div>
 
-        <div className="flex justify-center py-2">
-          <div className="inline-flex rounded-[2rem] border border-white/8 bg-[#111111] px-6 py-5 shadow-[0_18px_44px_rgba(0,0,0,0.28)]">
-            <img src={logoMark} alt="BlackCrown Studio logo" className="h-28 w-auto sm:h-32" />
-          </div>
-        </div>
-
         <div className="rounded-[2.2rem] bg-[#f5f3ef] px-5 py-10 text-slate-950 sm:px-8 lg:px-10 lg:py-12">
           <div className="mx-auto max-w-6xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-700">Meet Our Team</p>
@@ -1222,12 +1141,12 @@ function ListingMediaSection() {
         <SectionHeading
           eyebrow="Listing Media"
           title="Listing Media"
-          subtitle="Professional listing photos, videos, and content that showcase your vision to buyers before they even set foot on the property so you sell homes faster, easier, and for more."
+          subtitle="We turn your brand into reels people stop for, remember, and share, helping you build a stronger presence and turn your content into real growth."
         />
 
         <div className="lg:justify-self-end">
           <ActionButton onClick={() => scrollToId('book')} className="min-w-[190px] justify-between gap-3 px-5 py-3 text-sm">
-            <span>Book a Shoot</span>
+            <span>BOOK A MEETING</span>
             <span aria-hidden="true" className="text-lg leading-none">›</span>
           </ActionButton>
         </div>
@@ -1247,9 +1166,9 @@ function ListingMediaSection() {
                 <h3 className="font-display text-2xl uppercase text-pearl">{level.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-pearl/75">{level.description}</p>
                 <div className="mt-4 flex flex-wrap gap-3">
-                  <ActionButton onClick={() => scrollToId('book')}>Book a Shoot</ActionButton>
+                  <ActionButton onClick={() => scrollToId('book')}>BOOK A MEETING</ActionButton>
                   <ActionButton variant="secondary" onClick={() => scrollToId('packages')}>
-                    Custom Videos
+                    View Packages
                   </ActionButton>
                 </div>
               </motion.article>
@@ -1259,10 +1178,10 @@ function ListingMediaSection() {
 
         <div className="grid gap-4 sm:grid-cols-2">
           {[
-            'Next level photography with social-ready framing.',
-            'Cinematic motion that translates across listing and social channels.',
-            'Drone coverage that gives properties context and scale.',
-            'Structured hooks, captions, and delivery for easy publishing.',
+            'Strategic reels built to stop the scroll and start conversations.',
+            'Scripts, shoots, and edits handled by one creative team.',
+            'Content built for Instagram, Facebook, and the platforms that matter.',
+            'Monthly planning, performance reviews, and deeper optimization.',
           ].map((item) => (
             <motion.article
               key={item}
@@ -1273,164 +1192,6 @@ function ListingMediaSection() {
               <p className="text-sm leading-7 text-pearl/78">{item}</p>
             </motion.article>
           ))}
-        </div>
-      </div>
-    </Reveal>
-  )
-}
-
-function SocialMediaSection() {
-  const [accessStage, setAccessStage] = useState('Account Access')
-
-  const onboardingMap = {
-    'Account Access': 'IG login/admin and FB business page access',
-    'Brand Alignment': 'Tone, voice, brand guidelines, target audience, and content preferences',
-    'Workflow Setup': 'Google Drive folder, scheduling system, and posting cadence',
-  }
-
-  return (
-    <Reveal id="social-media" variant="dark">
-      <div className="grid gap-10">
-        <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start">
-          <SectionHeading
-            eyebrow="Social Media Management"
-            title="Built for the agent who is tired of juggling it all."
-            subtitle="Between showings and client calls, social media slips. BlackCrown Studio keeps your brand active with done-for-you content and management."
-          />
-
-          <div className="lg:justify-self-end">
-            <ActionButton onClick={() => scrollToId('book')} className="min-w-[190px] justify-between gap-3 px-5 py-3 text-sm">
-              <span>Book a Shoot</span>
-              <span aria-hidden="true" className="text-lg leading-none">›</span>
-            </ActionButton>
-          </div>
-        </div>
-
-        <div className="mx-auto w-full max-w-6xl">
-
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {socialPillars.map((pillar) => (
-              <motion.article
-                key={pillar}
-                className="rounded-[1.4rem] border border-white/10 bg-white/5 p-5"
-                whileHover={{ y: -5, scale: 1.01 }}
-                whileTap={{ scale: 0.99 }}
-              >
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">{pillar}</p>
-              </motion.article>
-            ))}
-          </div>
-
-          <div className="mt-8 rounded-[2rem] border border-white/10 bg-[#121212] p-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">What a Month Looks Like</p>
-            <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-              {['Week 1 Plan + Shoot', 'Week 2 Edit + First Delivery', 'Weeks 3-4 Posting + Ongoing Delivery', 'Always: Content Approval (48-hr review window)'].map((item, index) => (
-                <motion.div
-                  key={item}
-                  className="rounded-[1.4rem] border border-white/10 bg-white/5 p-4 text-sm text-pearl/80"
-                  whileHover={{ y: -4, scale: 1.01 }}
-                  whileTap={{ scale: 0.99 }}
-                >
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">0{index + 1}</p>
-                  <p className="mt-3 leading-6">{item}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="mx-auto w-full max-w-6xl rounded-[2rem] border border-white/10 bg-white p-6 text-slate-950 shadow-[0_18px_44px_rgba(0,0,0,0.12)]">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-700">Pricing Tiers</p>
-          <div className="mt-6 grid gap-4 xl:grid-cols-3">
-            {socialPlans.map((plan, index) => (
-              <motion.article
-                key={plan.name}
-                className={`rounded-[1.6rem] border p-5 ${index === 1 ? 'border-amber-500 bg-amber-50' : 'border-slate-200 bg-white'}`}
-                whileHover={{ y: -5, scale: 1.01 }}
-                whileTap={{ scale: 0.99 }}
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="font-display text-2xl uppercase text-slate-950">{plan.name}</h3>
-                    <p className="mt-2 text-sm text-slate-600">{plan.price}</p>
-                  </div>
-                </div>
-                <ul className="mt-4 space-y-2 text-sm text-slate-700">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="break-words rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2 leading-6">
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </motion.article>
-            ))}
-          </div>
-
-          <div className="mt-6 overflow-x-auto rounded-[1.5rem] border border-slate-200">
-            <table className="min-w-[760px] w-full border-collapse text-left text-sm">
-              <thead className="bg-slate-950 text-white">
-                <tr>
-                  <th className="px-4 py-4 font-semibold">Feature</th>
-                  {socialPlans.map((plan) => (
-                    <th key={plan.name} className="px-4 py-4 font-semibold">{plan.name}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {socialTableRows.map((row, index) => (
-                  <tr key={row[0]} className={index % 2 === 0 ? 'bg-slate-50' : 'bg-white'}>
-                    {row.map((cell, cellIndex) => (
-                      <td key={cell} className="border-t border-slate-200 px-4 py-3 align-top text-slate-700">
-                        {cellIndex === 0 ? <span className="font-semibold text-slate-950">{cell}</span> : cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="mt-6 rounded-[1.6rem] border border-slate-200 bg-slate-50 p-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-700">Onboarding in 3 Steps</p>
-            <div className="mt-4 grid gap-3">
-              {onboardingSteps.map((step) => (
-                <motion.div
-                  key={step}
-                  className="rounded-2xl border border-slate-200 bg-white/90 px-4 py-3 text-sm text-slate-700"
-                  whileHover={{ y: -3, scale: 1.01 }}
-                  whileTap={{ scale: 0.99 }}
-                >
-                  {step}
-                </motion.div>
-              ))}
-            </div>
-            <div className="mt-4 flex flex-wrap gap-3">
-              {Object.keys(onboardingMap).map((stage) => (
-                <motion.button
-                  key={stage}
-                  type="button"
-                  onClick={() => setAccessStage(stage)}
-                  whileHover={{ y: -2, scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className={`rounded-full border px-4 py-2 text-sm font-semibold ${
-                    accessStage === stage
-                      ? 'border-amber-500 bg-amber-500 text-slate-950'
-                      : 'border-slate-300 bg-white text-slate-700'
-                  }`}
-                >
-                  {stage}
-                </motion.button>
-              ))}
-            </div>
-            <p className="mt-4 text-sm leading-7 text-slate-700">{onboardingMap[accessStage]}</p>
-            <div className="mt-5 grid gap-3 sm:grid-cols-2">
-              {communicationItems.map((item) => (
-                <div key={item} className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700">
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </Reveal>
@@ -1611,8 +1372,7 @@ function BookingSection() {
   const [submitState, setSubmitState] = useState({ status: 'idle', message: '' })
   const quickLinks = [
     { label: 'Book With Us', target: 'packages' },
-    { label: 'Content Creator Program', target: 'social-media' },
-    { label: 'Out of State Campaigns', target: 'out-of-state' },
+    { label: 'Out Of Valley', target: 'out-of-valley' },
   ]
 
   const handleSubmit = async (event) => {
@@ -1643,7 +1403,7 @@ function BookingSection() {
       <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
         <div>
           <SectionHeading
-            eyebrow="Book a Shoot"
+            eyebrow="BOOK A MEETING"
             title="Reserve your production date"
             subtitle="Send the property address, preferred shoot date, and package, and we will take it from there."
           />
@@ -1716,13 +1476,13 @@ function BookingSection() {
                 <option>Starter</option>
                 <option>Signature</option>
                 <option>Full Stable</option>
-                <option>Out-of-State Package 01</option>
-                <option>Out-of-State Package 02</option>
-                <option>Out-of-State Package 03</option>
+                <option>Out Of Valley - Starter</option>
+                <option>Out Of Valley - Signature</option>
+                <option>Out Of Valley - Full Stable</option>
               </select>
             </label>
             <ActionButton type="submit" disabled={submitState.status === 'submitting'} className="mt-2 w-full">
-              {submitState.status === 'submitting' ? 'Booking...' : 'Book Your Shoot'}
+              {submitState.status === 'submitting' ? 'Booking...' : 'BOOK A MEETING'}
             </ActionButton>
             {submitState.message && (
               <p role="status" className={`rounded-2xl border px-4 py-3 text-sm ${submitState.status === 'success' ? 'border-emerald-400/30 bg-emerald-400/10 text-emerald-200' : 'border-red-400/30 bg-red-400/10 text-red-200'}`}>
@@ -1848,7 +1608,7 @@ function SiteFooter() {
     <footer className="border-t border-white/10 bg-[#090909] px-6 py-8 md:px-10 lg:px-12">
       <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-2 text-center">
         <p className="text-2xl font-black uppercase tracking-[0.08em] text-accent sm:text-3xl">BLACKCROWN</p>
-        <p className="text-sm leading-6 text-pearl/80 sm:text-base">© 2026 BlackCrown Studio. Social Media Management for Real Estate Professionals.</p>
+        <p className="text-sm leading-6 text-pearl/80 sm:text-base">© 2026 BlackCrown Studio. Reel Marketing for Ambitious Businesses.</p>
       </div>
     </footer>
   )
@@ -1867,7 +1627,6 @@ function HomePage({ activeSection }) {
         <PortfolioSection />
         <AboutSection />
         <ListingMediaSection />
-        <SocialMediaSection />
         <ResultsSection />
         <TestimonialsSection />
         <FaqSection />
@@ -1896,7 +1655,7 @@ function BlackCrownStudioPage() {
   const pathname = usePagePath()
   const isBookingPage = pathname === bookingPath
   const isDashboardPage = pathname === dashboardPath
-  const sectionIds = isBookingPage ? ['book'] : ['home', 'services', 'portfolio', 'about', 'listing-media', 'social-media']
+  const sectionIds = isBookingPage ? ['book'] : ['home', 'services', 'portfolio', 'about', 'listing-media']
   const activeSection = useScrollSpy(sectionIds)
 
   if (isDashboardPage) return <DashboardPage />
