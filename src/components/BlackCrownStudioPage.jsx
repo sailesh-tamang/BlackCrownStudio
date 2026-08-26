@@ -1668,10 +1668,10 @@ function DashboardPage() {
 
 function SiteFooter() {
   return (
-    <footer className="border-t border-white/10 bg-[#090909] px-6 py-8 md:px-10 lg:px-12">
-      <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-2 text-center">
-        <p className="text-2xl font-black uppercase tracking-[0.08em] text-accent sm:text-3xl">BLACKCROWN</p>
-        <p className="text-sm leading-6 text-pearl/80 sm:text-base">© 2026 BlackCrown Studio. Reel Marketing for Ambitious Businesses.</p>
+    <footer className="border-t border-white/10 bg-[#090909] px-6 py-5 md:px-10 lg:px-12">
+      <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-1.5 text-center">
+        <p className="text-xl font-black uppercase tracking-[0.08em] text-accent sm:text-2xl">BLACKCROWN</p>
+        <p className="text-xs leading-5 text-pearl/80 sm:text-sm">© 2026 BlackCrown Studio. Reel Marketing for Ambitious Businesses.</p>
       </div>
     </footer>
   )
