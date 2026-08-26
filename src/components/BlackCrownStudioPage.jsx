@@ -1262,7 +1262,7 @@ function TestimonialsSection() {
         <motion.div
           className="flex w-max gap-5"
           animate={{ x: ['-50%', '0%'] }}
-          transition={{ duration: 46, ease: 'linear', repeat: Infinity, repeatType: 'loop' }}
+          transition={{ duration: 62, ease: 'linear', repeat: Infinity, repeatType: 'loop' }}
         >
         {[...testimonials, ...testimonials].map((testimonial, index) => (
           <motion.article
