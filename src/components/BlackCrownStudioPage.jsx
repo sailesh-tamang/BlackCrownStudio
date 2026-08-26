@@ -916,11 +916,11 @@ function PackagesSection() {
             transition={{ duration: 0.45, delay: index * 0.08 }}
           >
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">{item.accent}</p>
-            <div className="mt-4 flex flex-nowrap items-end justify-between gap-3">
+            <div className="mt-4 flex flex-col items-start gap-3 sm:flex-row sm:flex-nowrap sm:items-end sm:justify-between">
               <div>
                 <h3 className="whitespace-nowrap font-display text-[2.35rem] uppercase leading-none text-pearl sm:text-3xl">{item.name}</h3>
               </div>
-              <p className="whitespace-nowrap font-display text-[3.35rem] leading-none text-accent sm:text-4xl">{item.price}</p>
+              <p className="self-end whitespace-nowrap font-display text-[3.35rem] leading-none text-accent sm:self-auto sm:text-4xl">{item.price}</p>
             </div>
 
             <ul className="mt-6 space-y-3">
