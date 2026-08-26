@@ -1,27 +1,27 @@
 const portfolioItems = [
   {
-    title: 'Luxury Exterior Reel',
+    title: 'Brand Launch Reel',
     category: 'Video',
     image:
-      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
   },
   {
-    title: 'Golden Hour Listing',
+    title: 'Product Story',
     category: 'Photography',
     image:
-      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80',
   },
   {
-    title: 'Modern Interior Story',
+    title: 'Founder Story',
     category: 'Brand Film',
     image:
-      'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80',
   },
   {
-    title: 'Agent Social Campaign',
+    title: 'Social Campaign',
     category: 'Short Form',
     image:
-      'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80',
   },
 ]
 

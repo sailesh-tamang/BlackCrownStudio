@@ -1,6 +1,11 @@
 import { AnimatePresence, motion, useInView, useScroll, useTransform } from 'framer-motion'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import logoMark from '../assets/logo.png'
+import everestLogo from '../assets/everest.png'
+import growbnbLogo from '../assets/growbnb.png'
+import kathmanduEnfieldersLogo from '../assets/kathmandu_enfielders.png'
+import mapleLogo from '../assets/maple.png'
+import nrishalaLogo from '../assets/nrishala.png'
 import pawanKhatiwada from '../assets/pawan-khatiwada.png'
 import restaurantHero from '../assets/restaurant-hero.png'
 import saileshTamang from '../assets/sailesh-tamang.png'
@@ -14,14 +19,14 @@ const navItems = [
   { label: 'Services', target: 'services' },
   { label: 'Portfolio', target: 'portfolio' },
   { label: 'About', target: 'about' },
-  { label: 'Listing Media', target: 'listing-media' },
+  { label: 'Reel Marketing', target: 'reel-marketing' },
 ]
 
 const processSteps = [
   {
     number: '1',
     title: 'BOOK A MEETING',
-    description: 'Schedule your shoot online or by phone.',
+    description: 'Tell us about your business, audience, and marketing goals.',
   },
   {
     number: '2',
@@ -30,13 +35,13 @@ const processSteps = [
   },
   {
     number: '3',
-    title: 'Shoot Day',
-    description: 'Our team arrives to capture your listing perfectly.',
+    title: 'Content Creation',
+    description: 'We create on-brand reels, visuals, and social content for your channels.',
   },
   {
     number: '4',
-    title: 'Media Delivery',
-    description: 'Receive your edited media in 1-2 business days.',
+    title: 'Publish & Grow',
+    description: 'Receive polished content and ongoing support to keep your channels active.',
   },
 ]
 
@@ -115,44 +120,44 @@ const outOfValleyPackages = [
   },
 ]
 
-const portfolioTabs = ['Bordered Estate', 'Home Showcase', 'Agent Feature', 'Interior Cinematic']
+const portfolioTabs = ['Brand Reels', 'Social Campaigns', 'Product Stories', 'Behind the Scenes']
 
 const portfolioItems = [
   {
-    title: 'Bordered Estate',
-    category: 'Bordered Estate',
+    title: 'Brand Launch Reel',
+    category: 'Brand Reels',
     image:
-      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
   },
   {
-    title: 'Sunlit Showcase',
-    category: 'Home Showcase',
+    title: 'Social Growth Campaign',
+    category: 'Social Campaigns',
     image:
-      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80',
   },
   {
-    title: 'Agent Feature',
-    category: 'Agent Feature',
+    title: 'Product Story Reel',
+    category: 'Product Stories',
     image:
-      'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80',
   },
   {
-    title: 'Interior Cinematic',
-    category: 'Interior Cinematic',
+    title: 'Creative Process',
+    category: 'Behind the Scenes',
     image:
-      'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=80',
   },
   {
-    title: 'Modern Detail Cut',
-    category: 'Interior Cinematic',
+    title: 'Content Day',
+    category: 'Behind the Scenes',
     image:
-      'https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80',
   },
   {
-    title: 'Exterior Storyboard',
-    category: 'Bordered Estate',
+    title: 'Founder Story',
+    category: 'Brand Reels',
     image:
-      'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80',
   },
 ]
 
@@ -176,11 +181,11 @@ const values = [
 
 const team = [
   { name: 'Pawan Khatiwada', title: 'Founder', image: pawanKhatiwada },
-  { name: 'Sailesh Tamang', title: 'Co-Founder', image: saileshTamang },
+  { name: 'Sailesh Tamang', title: 'Co-Founder', image: saileshTamang, imageClass: 'origin-top scale-[1.14]' },
   { name: 'Fourehouse Media', title: 'Partner & Creative Director' },
 ]
 
-const listingLevels = [
+const reelMarketingServices = [
   {
     title: 'Reel Marketing',
     description:
@@ -189,32 +194,41 @@ const listingLevels = [
 ]
 
 const stats = [
-  { label: 'Filmed in Real Estate', display: '$2 BILLION', value: 2 },
-  { label: 'Happy clients', display: '1000+', value: 1000 },
-  { label: 'Monthly views', display: '5,000,000+', value: 5000000 },
+  { label: 'Happy clients', display: '100+', value: 100 },
+  { label: 'Monthly views', display: '500000+', value: 500000 },
   { label: 'Months active', display: '24', value: 24 },
 ]
 
 const testimonials = [
   {
-    name: 'Kelsie Blevins',
+    name: 'Everest',
+    logo: everestLogo,
     quote:
-      'BlackCrown Studio gave my listings more exposure and strengthened my personal brand at the same time.',
+      'BlackCrown Studio brought structure and creativity to our content. The reels feel polished, on-brand, and genuinely help us stay visible to the right audience.',
   },
   {
-    name: 'Anthony Swain',
+    name: 'Growbnb',
+    logo: growbnbLogo,
     quote:
-      'Phenomenal to work with. The team drives leads, gets compliments, and is simply the best in the market.',
+      'Working with the team has made social media much easier to manage. They understand our brand, bring strong ideas, and consistently deliver content we are proud to post.',
   },
   {
-    name: 'Steven Custer',
+    name: 'Kathmandu Enfielders',
+    logo: kathmanduEnfieldersLogo,
     quote:
-      'Consistent content from BlackCrown Studio helped me land a major listing and close the deal.',
+      'They captured the energy of our community perfectly. Every reel feels authentic, well produced, and gives our audience a reason to engage with us.',
   },
   {
-    name: 'Austin Quick',
+    name: 'Maple',
+    logo: mapleLogo,
     quote:
-      'Professional, creative, strong communication, and a flawless final product every time.',
+      'BlackCrown Studio combines thoughtful strategy with excellent execution. Their content has given our brand a more refined and consistent presence online.',
+  },
+  {
+    name: 'Nrishala',
+    logo: nrishalaLogo,
+    quote:
+      'The team is professional, responsive, and easy to collaborate with. They turn our ideas into content that feels fresh, clear, and aligned with our goals.',
   },
 ]
 
@@ -223,80 +237,80 @@ const faqSections = {
     {
       question: 'What does BlackCrown Studio specialize in?',
       answer:
-        'We create cinematic real estate content for agents, including listing videos, photography, drone footage, social content, and done-for-you marketing.',
+        'We help businesses grow through strategic reel marketing, social media content, and done-for-you social media marketing.',
     },
     {
       question: 'Who do you work with?',
       answer:
-        'We work with real estate agents, brokers, and teams who want their listings and personal brand to stand out.',
+        'We work with businesses and personal brands that want a stronger, more consistent presence on social media.',
     },
     {
-      question: 'What markets do you serve?',
+      question: 'Can you work with my business remotely?',
       answer:
-        'We work with businesses inside and outside the valley that need a consistent digital marketing partner wherever they are.',
+        'Yes. We can support businesses locally or remotely with content strategy, reel marketing, and social media marketing services.',
     },
   ],
-  'Booking & Scheduling': [
+  'Reel Marketing': [
     {
-      question: 'How do I book a meeting?',
+      question: 'What is reel marketing, and how can it help my business?',
       answer:
-        'Use the booking form below, click BOOK A MEETING in the header, or call the studio to reserve your date.',
+        'Reel marketing uses short-form video to capture attention, build trust, and reach more of the right people. We create strategic reels designed around your brand, audience, and business goals.',
     },
   ],
-  'Pricing & Packages': [
+  'Service Packages': [
     {
       question: 'Can packages be customized?',
       answer:
-        'Yes. We can adjust deliverables, add-ons, and timelines so the package fits the property and your goals.',
+        'Yes. We tailor the number of reels, posting support, content planning, and other deliverables around your marketing goals.',
     },
   ],
-  'Video & Content Production': [
+  'Reels & Content Creation': [
     {
       question: 'Do you provide hooks and scripts?',
       answer:
-        'Yes. Hooks and scripts are included so agents know exactly what to say on camera.',
+        'Yes. We create scroll-stopping hooks, video concepts, and scripts so each reel has a clear message and purpose.',
     },
   ],
-  'Turnaround & Delivery': [
+  'Content Delivery': [
     {
-      question: 'When do I receive my media?',
+      question: 'When will my reels be ready?',
       answer:
-        'Most edited media is delivered in 1-2 business days, organized for easy Dropbox delivery and sharing.',
+        'Your content is edited and delivered on an agreed timeline, ready for review and publishing on your social media channels.',
     },
   ],
   'Revisions & Edits': [
     {
       question: 'Are revisions included?',
       answer:
-        'Yes. We include a clear approval window and revision workflow so the final media matches your expectations.',
+        'Yes. We include a clear review and revision process so the final content feels right for your brand and audience.',
     },
   ],
-  'Licensing & Usage': [
+  'Social Media Marketing': [
     {
-      question: 'Can I use the content on every platform?',
+      question: 'Do you manage social media as well as create content?',
       answer:
-        'Yes. Final media is prepared for listing, social, and ad usage with platform-friendly formatting.',
+        'Yes. We can support your social media with content planning, reel creation, captions, posting strategy, and consistent branding across your channels.',
     },
   ],
-  'Shoot Day Expectations': [
+  'Content Strategy': [
     {
-      question: 'What should I expect on shoot day?',
+      question: 'How do you decide what content to create for my brand?',
       answer:
-        'Our crew arrives with a plan, captures the property efficiently, and directs the shoot so the process stays smooth.',
+        'We start with your target audience, services, and goals, then build content ideas that mix educational, engaging, and promotional reels to keep your social media active and effective.',
     },
   ],
-  'Payments & Policies': [
+  'Getting Started': [
     {
-      question: 'How does payment work?',
+      question: 'How do we start working together?',
       answer:
-        'We confirm the shoot, schedule the production, and keep the process straightforward with clear payment expectations.',
+        'We begin by learning about your business and goals, then create a content plan and service package that fits your needs.',
     },
   ],
   'Results & Growth': [
     {
       question: 'What kind of results do clients see?',
       answer:
-        'Clients see stronger listing presentation, more consistent branding, and content that supports exposure and growth.',
+        'Clients build a more consistent brand, improve engagement, and create more opportunities to reach and connect with their ideal audience.',
     },
   ],
 }
@@ -750,7 +764,7 @@ function HeroSection() {
                   </svg>
                 </span>
                 <span>
-                  <strong className="font-semibold text-pearl">Made for business:</strong> branding videos, short-form reels, photos, drone and more for the business that want to stand out.
+                  <strong className="font-semibold text-pearl">Made for business:</strong> branding videos, short-form reels, social posts, and content strategy for businesses that want to stand out.
                 </span>
               </li>
             </motion.ul>
@@ -777,7 +791,7 @@ function ProcessSection() {
   const previews = [
     <div className="grid gap-2" key="booking-preview">
       <p className="mb-1 text-[0.62rem] text-white/55">Book a New Order</p>
-      {['Property address', 'Shoot date', 'Package'].map((label) => (
+      {['Business name', 'Meeting date', 'Service package'].map((label) => (
         <div key={label} className="rounded bg-white/[0.07] px-3 py-1.5 text-[0.6rem] text-white/35">{label}</div>
       ))}
     </div>,
@@ -794,17 +808,17 @@ function ProcessSection() {
         </div>
       ))}
     </div>,
-    <div className="flex h-full flex-col items-center justify-center gap-2 text-accent" key="shoot-preview">
+    <div className="flex h-full flex-col items-center justify-center gap-2 text-accent" key="content-preview">
       <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.8" className="h-9 w-9" aria-hidden="true">
         <path d="M15 16h5l3-4h7l3 4h4a4 4 0 0 1 4 4v15H11V20a4 4 0 0 1 4-4Z" />
         <circle cx="26" cy="26" r="6" />
       </svg>
-      <p className="text-[0.65rem] text-white/45">Team on location</p>
+      <p className="text-[0.65rem] text-white/45">Content creation in progress</p>
     </div>,
     <div className="grid gap-1.5" key="delivery-preview">
       <p className="text-[0.62rem] text-white/55">Your videos</p>
       <div className="grid grid-cols-2 gap-1">
-        {['Listing Video', 'Drone Reel', 'BTS Photos', 'Thumbnails'].map((label) => (
+        {['Brand Reel', 'Product Reel', 'Social Posts', 'Thumbnails'].map((label) => (
           <div key={label} className="rounded bg-white/[0.045] px-1.5 py-2 text-[0.52rem] text-white/25">{label}</div>
         ))}
       </div>
@@ -818,7 +832,7 @@ function ProcessSection() {
         <SectionHeading
           eyebrow="Process"
           title="It's as easy as one, two three"
-          subtitle="A simple production flow keeps the shoot efficient and the final media consistent."
+          subtitle="A simple content workflow keeps your brand consistent and your social media moving forward."
         />
 
         <div className="lg:justify-self-end">
@@ -857,9 +871,9 @@ function PackagesSection() {
     <Reveal id="services" variant="dark">
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start">
         <SectionHeading
-          eyebrow="What We Offer"
-          title="Packages built for listings that need to move"
-          subtitle="Three tiers that scale from listing essentials to a complete premium content stack."
+          eyebrow="Inside Valley Packages"
+          title="Reel marketing packages for inside the valley"
+          subtitle="Choose from three tiers of reels and social media marketing support for businesses inside the valley."
         />
 
         <div className="lg:justify-self-end">
@@ -883,11 +897,11 @@ function PackagesSection() {
             transition={{ duration: 0.45, delay: index * 0.08 }}
           >
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">{item.accent}</p>
-            <div className="mt-4 flex items-end justify-between gap-4">
+            <div className="mt-4 flex flex-nowrap items-end justify-between gap-3">
               <div>
-                <h3 className="font-display text-3xl uppercase text-pearl">{item.name}</h3>
+                <h3 className="whitespace-nowrap font-display text-[2.35rem] uppercase leading-none text-pearl sm:text-3xl">{item.name}</h3>
               </div>
-              <p className="font-display text-4xl leading-none text-accent">{item.price}</p>
+              <p className="whitespace-nowrap font-display text-[3.35rem] leading-none text-accent sm:text-4xl">{item.price}</p>
             </div>
 
             <ul className="mt-6 space-y-3">
@@ -953,7 +967,7 @@ function OutOfStateSection() {
 }
 
 function PortfolioSection() {
-  const [activeTab, setActiveTab] = useState('Bordered Estate')
+  const [activeTab, setActiveTab] = useState('Brand Reels')
 
   const visibleItems = useMemo(
     () => portfolioItems.filter((item) => item.category === activeTab),
@@ -966,7 +980,7 @@ function PortfolioSection() {
         <SectionHeading
           eyebrow="Portfolio"
           title="Our Portfolio"
-          subtitle="Professional listing photos, videos, and content that showcase your vision to buyers before they even set foot on the property so you sell homes faster, easier, and for more."
+          subtitle="Strategic reels and social media content that help your business stand out, build trust, and reach the right audience."
           light
         />
 
@@ -1076,9 +1090,8 @@ function AboutSection() {
               Meet Our Team
             </h3>
             <p className="mx-auto mt-5 max-w-5xl text-sm leading-8 text-slate-700 sm:text-base lg:text-[1.08rem]">
-              BlackCrown Studio specializes in real estate storytelling through high-end visual marketing.
-              We help agents, brokers, designers, and builders present their listings with polished
-              photography, cinematic video, and a consistent brand presence that feels premium.
+              BlackCrown Studio helps businesses turn their ideas into high-impact reel marketing and social media content.
+              We combine creative direction, content strategy, filming, editing, and social media support to build a brand presence that feels premium and performs consistently.
             </p>
 
             <div className="mt-10 grid gap-5 lg:grid-cols-3">
@@ -1099,14 +1112,14 @@ function AboutSection() {
                         <img
                           src={member.image}
                           alt={`${member.name}, ${member.title}`}
-                          className="absolute inset-0 h-full w-full object-cover"
+                          className={`absolute inset-0 h-full w-full object-cover object-top ${member.imageClass || ''}`}
                         />
                         <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-transparent to-black/10" />
                       </>
                     ) : (
                       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_52%,rgba(212,175,55,0.18),transparent_35%)]" />
                     )}
-                    <div className={`absolute left-5 top-5 z-10 ${member.image ? 'text-white' : 'text-slate-950'}`}>
+                    <div className={`absolute z-10 ${member.image ? 'inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/65 to-transparent px-5 pb-5 pt-12 text-white' : 'left-5 top-5 text-slate-950'}`}>
                       <h4 className="font-display text-[1.6rem] uppercase leading-none">{member.name}</h4>
                       <p className={`mt-2 text-sm ${member.image ? 'text-white/80' : 'text-slate-600'}`}>{member.title}</p>
                     </div>
@@ -1134,13 +1147,13 @@ function AboutSection() {
   )
 }
 
-function ListingMediaSection() {
+function ReelMarketingSection() {
   return (
-    <Reveal id="listing-media" variant="dark">
+    <Reveal id="reel-marketing" variant="dark">
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start">
         <SectionHeading
-          eyebrow="Listing Media"
-          title="Listing Media"
+          eyebrow="Reel Marketing"
+          title="Reel Marketing"
           subtitle="We turn your brand into reels people stop for, remember, and share, helping you build a stronger presence and turn your content into real growth."
         />
 
@@ -1156,7 +1169,7 @@ function ListingMediaSection() {
       <div className="mt-10 grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
         <div className="rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(212,175,55,0.1),rgba(17,17,17,0.96))] p-7 shadow-[0_18px_44px_rgba(0,0,0,0.28)]">
           <div className="grid gap-4">
-            {listingLevels.map((level) => (
+            {reelMarketingServices.map((level) => (
               <motion.article
                 key={level.title}
                 className="rounded-[1.6rem] border border-white/10 bg-white/5 p-5"
@@ -1179,7 +1192,7 @@ function ListingMediaSection() {
         <div className="grid gap-4 sm:grid-cols-2">
           {[
             'Strategic reels built to stop the scroll and start conversations.',
-            'Scripts, shoots, and edits handled by one creative team.',
+            'Scripts, content creation, and edits handled by one creative team.',
             'Content built for Instagram, Facebook, and the platforms that matter.',
             'Monthly planning, performance reviews, and deeper optimization.',
           ].map((item) => (
@@ -1217,7 +1230,7 @@ function ResultsSection() {
         </div>
       </div>
 
-      <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+      <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         {stats.map((stat) => (
           <StatCounter key={stat.label} {...stat} />
         ))}
@@ -1232,7 +1245,7 @@ function TestimonialsSection() {
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start">
         <SectionHeading
           eyebrow="Testimonials"
-          title="What customers say after the shoot"
+          title="What customers say after working with us"
           subtitle=""
           light
         />
@@ -1245,20 +1258,23 @@ function TestimonialsSection() {
         </div>
       </div>
 
-      <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-        {testimonials.map((testimonial) => (
+      <div className="mt-12 -mx-6 overflow-hidden md:-mx-10 lg:-mx-12">
+        <motion.div
+          className="flex w-max gap-5"
+          animate={{ x: ['-50%', '0%'] }}
+          transition={{ duration: 46, ease: 'linear', repeat: Infinity, repeatType: 'loop' }}
+        >
+        {[...testimonials, ...testimonials].map((testimonial, index) => (
           <motion.article
-            key={testimonial.name}
-            className="rounded-[1.1rem] border border-slate-200 bg-[#f5f5f5] p-5 shadow-[0_10px_18px_rgba(15,23,42,0.06)]"
+            key={`${testimonial.name}-${index}`}
+            aria-hidden={index >= testimonials.length}
+            className="min-h-[290px] w-[calc(100vw-1.25rem)] shrink-0 rounded-[1.1rem] border border-slate-200 bg-[#f5f5f5] p-6 shadow-[0_10px_18px_rgba(15,23,42,0.06)] md:min-h-[310px] md:w-[calc((100vw-1.25rem)/2)] xl:w-[calc((100vw-2.5rem)/3)]"
             whileHover={{ y: -6, scale: 1.01 }}
             whileTap={{ scale: 0.99 }}
           >
             <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-500 text-sm font-black text-white">
-                {testimonial.name
-                  .split(' ')
-                  .map((part) => part[0])
-                  .join('')}
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-white p-1.5">
+                <img src={testimonial.logo} alt={`${testimonial.name} logo`} className="h-full w-full object-contain" />
               </div>
               <div>
                 <h3 className="text-[1.35rem] font-black text-slate-800">{testimonial.name}</h3>
@@ -1268,6 +1284,7 @@ function TestimonialsSection() {
             <p className="mt-5 text-[1.02rem] leading-8 text-slate-600">{testimonial.quote}</p>
           </motion.article>
         ))}
+        </motion.div>
       </div>
     </Reveal>
   )
@@ -1381,6 +1398,10 @@ function BookingSection() {
     const form = event.currentTarget
     const payload = Object.fromEntries(new FormData(form).entries())
 
+    // Keep submissions compatible with the previously deployed booking API.
+    payload.propertyAddress = payload.businessName
+    payload.shootDate = payload.startDate
+
     try {
       const response = await fetch('/api/bookings', {
         method: 'POST',
@@ -1389,7 +1410,7 @@ function BookingSection() {
       })
       await readApiResponse(response)
       form.reset()
-      setSubmitState({ status: 'success', message: 'Your shoot has been booked. We will contact you shortly to confirm.' })
+      setSubmitState({ status: 'success', message: 'Your consultation has been requested. We will contact you shortly to confirm.' })
     } catch (error) {
       const message = error instanceof TypeError
         ? 'The booking service is unavailable. Please try again shortly.'
@@ -1404,8 +1425,8 @@ function BookingSection() {
         <div>
           <SectionHeading
             eyebrow="BOOK A MEETING"
-            title="Reserve your production date"
-            subtitle="Send the property address, preferred shoot date, and package, and we will take it from there."
+            title="Start your content strategy"
+            subtitle="Share your business name, meeting date, and service package, and we will take it from there."
           />
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -1447,23 +1468,24 @@ function BookingSection() {
               <input required type="email" name="email" autoComplete="email" placeholder="you@example.com" className="rounded-2xl border border-white/10 bg-black/35 px-4 py-3 text-pearl outline-none transition-colors placeholder:text-pearl/35 focus:border-accent" />
             </label>
             <label className="grid gap-2 text-sm text-pearl/80">
-              Property address
+              Business name
               <input
                 required
                 type="text"
-                name="propertyAddress"
-                placeholder="Property address"
+                name="businessName"
+                placeholder="Your business name"
                 className="rounded-2xl border border-white/10 bg-black/35 px-4 py-3 text-pearl outline-none transition-colors placeholder:text-pearl/35 focus:border-accent"
               />
             </label>
             <label className="grid gap-2 text-sm text-pearl/80">
-              Shoot date
+              Meeting date
               <input
                 required
                 type="date"
-                name="shootDate"
+                name="startDate"
                 min={new Date().toISOString().split('T')[0]}
-                className="rounded-2xl border border-white/10 bg-black/35 px-4 py-3 text-pearl outline-none transition-colors focus:border-accent"
+                onClick={(event) => event.currentTarget.showPicker?.()}
+                className="meeting-date-input rounded-2xl border border-white/10 bg-black/35 px-4 py-3 text-pearl outline-none transition-colors focus:border-accent"
               />
             </label>
             <label className="grid gap-2 text-sm text-pearl/80">
@@ -1476,13 +1498,13 @@ function BookingSection() {
                 <option>Starter</option>
                 <option>Signature</option>
                 <option>Full Stable</option>
-                <option>Out Of Valley - Starter</option>
-                <option>Out Of Valley - Signature</option>
-                <option>Out Of Valley - Full Stable</option>
+                <option>Outside Valley - Starter</option>
+                <option>Outside Valley - Signature</option>
+                <option>Outside Valley - Full Stable</option>
               </select>
             </label>
             <ActionButton type="submit" disabled={submitState.status === 'submitting'} className="mt-2 w-full">
-              {submitState.status === 'submitting' ? 'Booking...' : 'BOOK A MEETING'}
+              {submitState.status === 'submitting' ? 'Sending...' : 'BOOK A MEETING'}
             </ActionButton>
             {submitState.message && (
               <p role="status" className={`rounded-2xl border px-4 py-3 text-sm ${submitState.status === 'success' ? 'border-emerald-400/30 bg-emerald-400/10 text-emerald-200' : 'border-red-400/30 bg-red-400/10 text-red-200'}`}>
@@ -1545,7 +1567,7 @@ function DashboardPage() {
         <div className="flex flex-col gap-5 border-b border-white/10 pb-7 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-accent">Admin Dashboard</p>
-            <h1 className="mt-3 font-display text-4xl uppercase sm:text-5xl">Shoot Bookings</h1>
+            <h1 className="mt-3 font-display text-4xl uppercase sm:text-5xl">Consultation Requests</h1>
             <p className="mt-3 text-sm text-pearl/55">{bookings.length} total booking{bookings.length === 1 ? '' : 's'}</p>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -1575,7 +1597,7 @@ function DashboardPage() {
             <table className="w-full min-w-[980px] text-left text-sm">
               <thead className="border-b border-white/10 bg-white/[0.03] text-xs uppercase tracking-[0.14em] text-accent">
                 <tr>
-                  {['Customer', 'Contact', 'Property', 'Shoot date', 'Package', 'Status', 'Received'].map((heading) => <th key={heading} className="px-5 py-4 font-semibold">{heading}</th>)}
+                  {['Customer', 'Contact', 'Business', 'Meeting date', 'Package', 'Status', 'Received'].map((heading) => <th key={heading} className="px-5 py-4 font-semibold">{heading}</th>)}
                 </tr>
               </thead>
               <tbody>
@@ -1583,8 +1605,8 @@ function DashboardPage() {
                   <tr key={booking.id} className="border-b border-white/[0.07] last:border-0">
                     <td className="px-5 py-4 font-semibold text-white">{booking.name}</td>
                     <td className="px-5 py-4 text-pearl/65"><a className="block hover:text-accent" href={`mailto:${booking.email}`}>{booking.email}</a><a className="mt-1 block hover:text-accent" href={`tel:${booking.phone}`}>{booking.phone}</a></td>
-                    <td className="max-w-[240px] px-5 py-4 text-pearl/65">{booking.propertyAddress}</td>
-                    <td className="whitespace-nowrap px-5 py-4 text-pearl/65">{new Date(`${booking.shootDate}T00:00:00`).toLocaleDateString()}</td>
+                    <td className="max-w-[240px] px-5 py-4 text-pearl/65">{booking.businessName || booking.propertyAddress}</td>
+                    <td className="whitespace-nowrap px-5 py-4 text-pearl/65">{new Date(`${booking.startDate || booking.shootDate}T00:00:00`).toLocaleDateString()}</td>
                     <td className="px-5 py-4 text-pearl/65">{booking.package}</td>
                     <td className="px-5 py-4">
                       <select value={booking.status} onChange={(event) => updateStatus(booking.id, event.target.value)} className="rounded-xl border border-white/10 bg-black/40 px-3 py-2 text-pearl outline-none focus:border-accent">
@@ -1626,7 +1648,7 @@ function HomePage({ activeSection }) {
         <OutOfStateSection />
         <PortfolioSection />
         <AboutSection />
-        <ListingMediaSection />
+        <ReelMarketingSection />
         <ResultsSection />
         <TestimonialsSection />
         <FaqSection />
@@ -1655,7 +1677,7 @@ function BlackCrownStudioPage() {
   const pathname = usePagePath()
   const isBookingPage = pathname === bookingPath
   const isDashboardPage = pathname === dashboardPath
-  const sectionIds = isBookingPage ? ['book'] : ['home', 'services', 'portfolio', 'about', 'listing-media']
+  const sectionIds = isBookingPage ? ['book'] : ['home', 'services', 'portfolio', 'about', 'reel-marketing']
   const activeSection = useScrollSpy(sectionIds)
 
   if (isDashboardPage) return <DashboardPage />

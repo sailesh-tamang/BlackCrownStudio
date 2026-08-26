@@ -1,38 +1,37 @@
 const mediaItems = [
   {
-    label: 'MLS Photography',
-    description: 'Sharp, bright, and listing-ready image sets.',
+    label: 'Reel Strategy',
+    description: 'Content ideas and concepts built around your audience and goals.',
   },
   {
-    label: 'Cinematic Video',
-    description: 'Short-form story edits optimized for social and ads.',
+    label: 'Short-Form Reels',
+    description: 'Scroll-stopping video edits optimized for social media.',
   },
   {
-    label: 'Drone Coverage',
-    description: 'Aerial visuals that establish scale and location.',
+    label: 'Social Media Management',
+    description: 'Consistent planning, posting, captions, and channel support.',
   },
   {
-    label: 'Listing Websites',
-    description: 'Branded single-property landing pages built to convert.',
+    label: 'Brand Content',
+    description: 'On-brand graphics, carousels, and campaigns that support your reels.',
   },
 ]
 
-function ListingMedia() {
+function ReelMarketing() {
   return (
     <section
-      id="listing-media"
+      id="reel-marketing"
       className="reveal-up pb-8 pt-10 sm:pt-14"
       style={{ '--delay': '220ms' }}
     >
       <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
         <div className="rounded-[28px] border border-white/10 bg-gradient-to-br from-[#1b1b1b] via-[#141414] to-[#0f0f0f] p-7 shadow-[0_18px_50px_rgba(0,0,0,0.35)]">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Listing Media</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Reel Marketing</p>
           <h2 className="mt-3 font-display text-3xl uppercase text-pearl sm:text-4xl">
-            Everything a modern listing needs
+            Everything your social media needs
           </h2>
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-pearl/75 sm:text-base">
-            This section gives the page a dedicated destination for listing media. It can be used
-            to outline deliverables, turnaround times, or upsells without breaking the one-page flow.
+            Strategic reels and social media support that give your brand a clear, consistent, and engaging online presence.
           </p>
 
           <a
@@ -60,4 +59,4 @@ function ListingMedia() {
   )
 }
 
-export default ListingMedia
+export default ReelMarketing

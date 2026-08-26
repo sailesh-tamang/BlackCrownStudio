@@ -2,7 +2,7 @@ function Hero() {
   return (
     <section className="reveal-up relative isolate mb-12 overflow-hidden rounded-2xl border border-white/10" style={{ '--delay': '80ms' }}>
       <div
-        className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center"
+        className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center"
         aria-hidden="true"
       />
 
@@ -63,7 +63,7 @@ function Hero() {
                 <circle cx="12" cy="8" r="3.3" />
                 <path d="M5 20a7 7 0 0 1 14 0" />
               </svg>
-              <span><strong>Made for business:</strong> branding videos, short-form reels, photos, drone and more for the business that want to stand out.</span>
+              <span><strong>Made for business:</strong> branding videos, short-form reels, social posts, and strategy for businesses that want to stand out.</span>
             </li>
           </ul>
 
@@ -86,7 +86,7 @@ function Hero() {
 
       <div className="relative border-t border-white/15 bg-black/65 px-6 py-4 sm:px-10 lg:px-14">
         <p className="text-center text-xs font-semibold uppercase tracking-[0.12em] text-pearl/80 sm:text-sm">
-          Trusted by 700+ Agents | 5M+ Monthly Views
+          Trusted by 100+ Businesses | 500K+ Monthly Views
         </p>
       </div>
     </section>

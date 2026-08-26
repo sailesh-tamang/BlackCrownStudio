@@ -7,7 +7,7 @@ function HeroIntro() {
         </p>
 
         <h1 className="font-display text-4xl font-semibold leading-tight text-pearl sm:text-5xl lg:text-6xl">
-          Cinematic Visuals For Luxury Property Storytelling
+          Reel Marketing And Social Media That Builds Your Brand
         </h1>
 
         <p className="mt-6 max-w-2xl text-base leading-relaxed text-[#d1cec8] sm:text-lg">

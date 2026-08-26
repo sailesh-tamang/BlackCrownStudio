@@ -22,8 +22,8 @@ const processSteps = [
     ),
   },
   {
-    title: 'Shoot Day',
-    description: 'Our team captures your listing perfectly',
+    title: 'Content Creation',
+    description: 'Our team creates content that fits your brand and goals',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-6 w-6">
         <rect x="3" y="7" width="18" height="13" rx="2" />

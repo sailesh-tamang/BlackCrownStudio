@@ -7,16 +7,16 @@ const packages = [
     price: '$750.00',
     serviceCount: '5 Services',
     image:
-      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
     badge: null,
     included: [
-      'Professional MLS Photography',
-      'Drone Photography (Aerial Stills)',
-      'Signature Listing Video',
-      'Custom Listing Website',
+      '8 short-form reels',
+      'Content concepts and hooks',
+      'Social media captions',
+      'Monthly content plan',
     ],
-    summary: 'This package is built for agents who want their listing presented the right way.',
-    more: ['Fast turnaround and optimized listing-ready media delivery.'],
+    summary: 'A focused reel package for businesses ready to show up consistently online.',
+    more: ['Polished reels and a clear content plan for your social media channels.'],
   },
   {
     id: 'signature',
@@ -24,17 +24,17 @@ const packages = [
     price: '$1,100.00',
     serviceCount: '8 Services',
     image:
-      'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80',
     badge: null,
     included: [
-      'Professional MLS Photography',
-      'Drone Photography (Aerial Stills)',
-      'Twilight Photo and Video',
-      'Platinum Reel',
-      'Custom Listing Website',
+      '12 short-form reels',
+      'Content concepts and hooks',
+      'Social media captions',
+      'Content calendar',
+      'Monthly performance review',
     ],
-    summary: 'This is the package most agents choose because it covers every angle.',
-    more: ['Priority scheduling and premium cinematic edit treatment.'],
+    summary: 'A complete monthly content system for consistent social media growth.',
+    more: ['Reels, planning, and strategy designed to make your brand memorable.'],
   },
   {
     id: 'full-stable',
@@ -42,19 +42,19 @@ const packages = [
     price: '$1,425.00',
     serviceCount: '10 Services',
     image:
-      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80',
     badge: 'Most Popular',
     included: [
-      'Professional MLS Photography',
-      '2D Floor Plans',
-      'Drone Photography (Aerial Stills)',
-      'Twilight Photo And Video',
-      'Platinum Reel',
-      'Teaser Video',
-      'Custom Listing Website',
+      '20 short-form reels',
+      'Full content strategy',
+      'Social media management',
+      'Graphics and carousels',
+      'Campaign concepts',
+      'Monthly performance review',
+      'Priority content support',
     ],
-    summary: "This is the package we built for agents who don't want to piece things together.",
-    more: ['Built for high-end listings that need a complete media stack.'],
+    summary: "A done-for-you social media package for brands that want a complete content partner.",
+    more: ['Built for businesses that want consistent reels, strategy, and channel support.'],
   },
   {
     id: 'custom',
@@ -62,19 +62,19 @@ const packages = [
     price: 'CUSTOM',
     serviceCount: 'X Services',
     image:
-      'https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=80',
     badge: null,
     included: [
-      'Professional MLS Photography',
-      '2D Floor Plans And Measurements',
-      'Drone Photography (Aerial Stills)',
-      'Twilight Photo And Video',
-      'Platinum Reel',
-      'Teaser Video',
-      'Custom Listing Website',
+      'Custom reel volume',
+      'Custom content strategy',
+      'Social media management',
+      'Graphics and carousels',
+      'Campaign concepts',
+      'Content calendar',
+      'Flexible monthly support',
     ],
-    summary: 'Build the perfect package for your listing needs.',
-    more: ['Pick exactly the services you need for each property and timeline.'],
+    summary: 'Build a service plan around your business, audience, and marketing goals.',
+    more: ['Choose the reel marketing and social media support that fits your needs.'],
   },
 ]
 
@@ -89,10 +89,9 @@ function PricingPackages() {
     <section id="services" className="reveal-up pb-8 pt-8 sm:pt-12" style={{ '--delay': '120ms' }}>
       <div className="mb-10 flex flex-col gap-3 text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">What We Offer</p>
-        <h2 className="font-display text-3xl uppercase text-pearl sm:text-4xl">Real Estate Media Packages</h2>
+        <h2 className="font-display text-3xl uppercase text-pearl sm:text-4xl">Reel Marketing Packages</h2>
         <p className="mx-auto max-w-2xl text-sm text-pearl/75 sm:text-base">
-          Agents trust us to make listings look exceptional on camera, on social, and across every
-          marketing channel.
+          We create strategic reels and social media content that help businesses stand out across every marketing channel.
         </p>
       </div>
 

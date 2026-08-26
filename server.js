@@ -58,11 +58,11 @@ async function parseBody(request) {
 }
 
 function validateBooking(input) {
-  const required = ['name', 'email', 'phone', 'propertyAddress', 'shootDate', 'package']
+  const required = ['name', 'email', 'phone', 'businessName', 'startDate', 'package']
   const missing = required.filter((field) => !String(input[field] || '').trim())
   if (missing.length) return `Missing required fields: ${missing.join(', ')}`
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.email)) return 'Enter a valid email address'
-  if (Number.isNaN(Date.parse(input.shootDate))) return 'Enter a valid shoot date'
+  if (Number.isNaN(Date.parse(input.startDate))) return 'Enter a valid start date'
   return null
 }
 
@@ -78,8 +78,8 @@ async function handleApi(request, response, pathname) {
       name: String(input.name).trim(),
       email: String(input.email).trim().toLowerCase(),
       phone: String(input.phone).trim(),
-      propertyAddress: String(input.propertyAddress).trim(),
-      shootDate: String(input.shootDate),
+      businessName: String(input.businessName).trim(),
+      startDate: String(input.startDate),
       package: String(input.package).trim(),
       status: 'New',
       createdAt: new Date().toISOString(),
