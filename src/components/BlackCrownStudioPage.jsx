@@ -120,44 +120,63 @@ const outOfValleyPackages = [
   },
 ]
 
-const portfolioTabs = ['Brand Reels', 'Social Campaigns', 'Product Stories', 'Behind the Scenes']
-
-const portfolioItems = [
+const portfolioPackages = [
   {
-    title: 'Brand Launch Reel',
-    category: 'Brand Reels',
-    image:
+    name: 'Starter',
+    price: 'NPR 50K',
+    description: 'A focused reel marketing package for a clear, consistent start on social media.',
+    videos: [
+      {
+        title: 'Starter Reel Showcase 01',
+        instagramId: 'DYPOPVmiCG-',
+        poster:
       'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
+      },
+      {
+        title: 'Starter Reel Showcase 02',
+        instagramId: 'DYpIpR7zSR1',
+        poster:
+          'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80',
+      },
+    ],
   },
   {
-    title: 'Social Growth Campaign',
-    category: 'Social Campaigns',
-    image:
-      'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80',
+    name: 'Signature',
+    price: 'NPR 120K',
+    description: 'A stronger content system with more reels, designs, and social media strategy.',
+    videos: [
+      {
+        title: 'Signature Reel Showcase 01',
+        instagramId: 'Da-NRiLjMyf',
+        poster:
+          'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80',
+      },
+      {
+        title: 'Signature Reel Showcase 02',
+        instagramId: 'Db0jH7vjKBI',
+        poster:
+          'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80',
+      },
+    ],
   },
   {
-    title: 'Product Story Reel',
-    category: 'Product Stories',
-    image:
-      'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80',
-  },
-  {
-    title: 'Creative Process',
-    category: 'Behind the Scenes',
-    image:
-      'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=80',
-  },
-  {
-    title: 'Content Day',
-    category: 'Behind the Scenes',
-    image:
-      'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80',
-  },
-  {
-    title: 'Founder Story',
-    category: 'Brand Reels',
-    image:
-      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80',
+    name: 'Full Stable',
+    price: 'NPR 200K',
+    description: 'A complete reel marketing and social media system designed for ongoing growth.',
+    videos: [
+      {
+        title: 'Full Stable Reel Showcase 01',
+        instagramId: 'DcPLMvKR9nK',
+        poster:
+          'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=80',
+      },
+      {
+        title: 'Full Stable Reel Showcase 02',
+        instagramId: 'DSXguNbkrni',
+        poster:
+          'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80',
+      },
+    ],
   },
 ]
 
@@ -967,31 +986,27 @@ function OutOfStateSection() {
 }
 
 function PortfolioSection() {
-  const [activeTab, setActiveTab] = useState('Brand Reels')
-
-  const visibleItems = useMemo(
-    () => portfolioItems.filter((item) => item.category === activeTab),
-    [activeTab],
-  )
+  const [activePackage, setActivePackage] = useState('Starter')
+  const selectedPackage = portfolioPackages.find((item) => item.name === activePackage) || portfolioPackages[0]
 
   return (
     <Reveal id="portfolio" variant="light" className="border-y border-slate-200 bg-[linear-gradient(180deg,#ffffff,#f6f3ec)]">
       <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
         <SectionHeading
           eyebrow="Portfolio"
-          title="Our Portfolio"
-          subtitle="Strategic reels and social media content that help your business stand out, build trust, and reach the right audience."
+          title="Package Video Showcase"
+          subtitle="Explore the style and level of reel marketing content included across each of our three packages."
           light
         />
 
         <div className="flex flex-wrap gap-3 lg:justify-end">
-          {portfolioTabs.map((tab) => {
-            const isActive = activeTab === tab
+          {portfolioPackages.map((item) => {
+            const isActive = activePackage === item.name
             return (
               <motion.button
-                key={tab}
+                key={item.name}
                 type="button"
-                onClick={() => setActiveTab(tab)}
+                onClick={() => setActivePackage(item.name)}
                 whileHover={{ y: -2, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className={`rounded-full border px-4 py-2 text-sm font-semibold transition-colors ${
@@ -1000,17 +1015,26 @@ function PortfolioSection() {
                     : 'border-slate-300 bg-white text-slate-700 hover:border-amber-500 hover:text-slate-950'
                 }`}
               >
-                {tab}
+                {item.name} · {item.price}
               </motion.button>
             )
           })}
         </div>
       </div>
 
-      <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-        {visibleItems.map((item, index) => (
+      <div className="mt-10 rounded-[2rem] border border-slate-200 bg-white p-5 shadow-[0_18px_40px_rgba(15,23,42,0.08)] sm:p-7">
+        <div className="flex flex-col gap-3 border-b border-slate-200 pb-6 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-700">{selectedPackage.price} Package</p>
+            <h3 className="mt-2 font-display text-3xl uppercase text-slate-950 sm:text-4xl">{selectedPackage.name}</h3>
+          </div>
+          <p className="max-w-xl text-sm leading-6 text-slate-600 sm:text-right">{selectedPackage.description}</p>
+        </div>
+
+        <div className="mt-6 grid gap-5 md:grid-cols-2">
+        {selectedPackage.videos.map((video, index) => (
           <motion.article
-            key={item.title}
+            key={video.title}
             className="group overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_18px_40px_rgba(15,23,42,0.08)]"
             whileHover={{ y: -6, scale: 1.01 }}
             whileTap={{ scale: 0.99 }}
@@ -1019,16 +1043,33 @@ function PortfolioSection() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.45, delay: index * 0.08 }}
           >
-            <div className="relative aspect-[4/5] overflow-hidden">
-              <img src={item.image} alt={item.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/12 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-5 text-white">
-                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.25em] text-amber-300">{item.category}</p>
-                <h3 className="mt-2 font-display text-2xl uppercase">{item.title}</h3>
-              </div>
+            <div className="relative aspect-[9/16] overflow-hidden bg-slate-950">
+              {video.instagramId ? (
+                <iframe
+                  src={`https://www.instagram.com/reel/${video.instagramId}/embed/?hidecaption=1`}
+                  title={video.title}
+                  className="h-full w-full border-0"
+                  loading="lazy"
+                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              ) : (
+                <>
+                  <img src={video.poster} alt={video.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/12 to-transparent" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="flex h-16 w-16 items-center justify-center rounded-full border border-white/50 bg-black/45 pl-1 text-xl text-white backdrop-blur-sm" aria-label="Video showcase placeholder">▶</span>
+                  </div>
+                  <div className="absolute inset-x-0 bottom-0 p-5 text-white">
+                    <p className="text-[0.7rem] font-semibold uppercase tracking-[0.25em] text-amber-300">{selectedPackage.name} Package</p>
+                    <h4 className="mt-2 font-display text-2xl uppercase">{video.title}</h4>
+                  </div>
+                </>
+              )}
             </div>
           </motion.article>
         ))}
+        </div>
       </div>
     </Reveal>
   )
