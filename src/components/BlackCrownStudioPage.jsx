@@ -2,6 +2,7 @@ import { AnimatePresence, motion, useInView, useScroll, useTransform } from 'fra
 import { useEffect, useMemo, useRef, useState } from 'react'
 import logoMark from '../assets/logo.png'
 import everestLogo from '../assets/everest.png'
+import deepisha from '../assets/deepisha.png'
 import growbnbLogo from '../assets/growbnb.png'
 import kathmanduEnfieldersLogo from '../assets/kathmandu_enfielders.png'
 import mapleLogo from '../assets/maple.png'
@@ -9,6 +10,7 @@ import nrishalaLogo from '../assets/nrishala.png'
 import pawanKhatiwada from '../assets/pawan-khatiwada.png'
 import restaurantHero from '../assets/restaurant-hero.png'
 import saileshTamang from '../assets/sailesh-tamang.png'
+import sejan from '../assets/sejan.png'
 
 const phoneNumber = '+977-9813056871'
 const emailAddress = 'contact@blackcrownstudio.com'
@@ -201,6 +203,8 @@ const values = [
 const team = [
   { name: 'Pawan Khatiwada', title: 'Founder', image: pawanKhatiwada },
   { name: 'Sailesh Tamang', title: 'Co-Founder', image: saileshTamang, imageClass: 'origin-top scale-[1.14]' },
+  { name: 'Deepisha', title: 'Content Manager', image: deepisha },
+  { name: 'Sejan', title: 'Operation Manager', image: sejan },
   { name: 'Fourehouse Media', title: 'Partner & Creative Director' },
 ]
 
